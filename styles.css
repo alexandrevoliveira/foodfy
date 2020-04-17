@@ -13,3 +13,104 @@
     padding:0;
     
 }
+
+body {
+    background-color: white;
+    font-family: "Roboto-bold";
+    color: #111111 100%;    
+}
+
+header {
+    max-width: 940px;
+    margin: 50px auto;
+
+}
+
+header div a {
+    color: black;
+    text-decoration: none;
+    font-size: 22px;
+    line-height: 32px;
+}
+
+.links a[id="title"] {
+    font-size: 32px;
+    line-height: 42px;
+    font-weight: lighter;
+    margin-right: 150px;
+    margin-left: 8px;
+}
+
+header div a + a + a{
+    margin-left: 50px;
+}
+
+.links a:hover {
+    color: var(--color-green);
+    transition: color 500ms;
+}
+
+.card-menu {
+    max-width: 940px;
+    height: 366px;
+    margin: 0 auto;
+    background-color: var(--color-salmao);
+    border-radius: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.card-menu .card-info {
+    text-align: left;
+    max-width: 320px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.card-info h1 {
+    margin-top: 70px;
+}
+
+.card-info p {
+    margin-top: 15px;
+}
+
+.card-chef {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.card-plates {
+    max-width: 940px;
+    margin: 0 auto;
+}
+
+.card-plates h1 {
+    margin-top: 40px;
+}
+
+.plates {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;    
+}
+
+.plate-image img {
+    max-width: 300px;
+    height: 140px;
+    border-radius: 15px;
+    margin-top: 24px;
+}
+
+.plate-title h1 {
+    color: #111111;
+    margin-top: 16px;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: bold;
+}
+
+.plate-chef p {
+    color: #777777 100%;
+    size: 14px;
+}

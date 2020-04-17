@@ -1,0 +1,15 @@
+@import "https://fonts.googleapis.com/css?family=Bellota:400,700&display=swap";
+
+:root {
+    --color-green: #50fa7b; 
+    --color-rocket: #7159c1;
+    --color-salmao: #FBDFDB;
+
+}
+
+* {
+    margin:0;
+    border:0;
+    padding:0;
+    
+}

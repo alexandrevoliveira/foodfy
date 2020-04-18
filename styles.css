@@ -1,4 +1,5 @@
 @import "https://fonts.googleapis.com/css?family=Bellota:400,700&display=swap";
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
 
 :root {
     --color-green: #50fa7b; 
@@ -109,14 +110,14 @@ header div a + a + a{
 .plate-title h1 {
     color: #111111;
     margin-top: 16px;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 30px;
     font-weight: lighter;
 }
 
 .plate-chef p {
     color: var(--color-cinza);
-    size: 14px;
+    font-size: 14px;
     margin-top: 3px;
 }
 
@@ -127,13 +128,13 @@ header div a + a + a{
     height: 62px;
     opacity: 100%;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 .info-footer p {
     font-size: 14px;
     line-height: 24px;
-    padding-top: 16px;
+    padding: 16px;
 }
 
 /* === ABOUT.HTML === */
@@ -170,4 +171,43 @@ header div a + a + a{
 .info-start p + p,
 .info-recipes p + p {
     margin-top: 40px;
+}
+
+/* === MODAL === */
+
+.modal-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    opacity: 0;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+}
+
+.modal {
+    background-color: white;
+    max-width: 660px;
+    margin: 200px auto;
+    height: 450px;
+    border-radius: 16px;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    bottom: 10px;
+    left: 320px;
+}
+
+.modal-content img {
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+    top: 30px;
+    left: 80px;
+    border-radius: 15px;
 }

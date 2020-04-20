@@ -213,10 +213,3 @@ header div a + a + a{
     top: 5%;
     border-radius: 15px;
 }
-
-.modal-content.active p {
-    color: var(--color-cinza);
-    font-size: 16px;
-    margin: 16px auto;
-
-}

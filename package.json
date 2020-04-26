@@ -1,0 +1,26 @@
+{
+  "name": "foodfy",
+  "version": "1.0.0",
+  "main": "servers.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "nunjucks": "^3.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexandrevoliveira/foodfy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexandrevoliveira/foodfy/issues"
+  },
+  "homepage": "https://github.com/alexandrevoliveira/foodfy#readme"
+}

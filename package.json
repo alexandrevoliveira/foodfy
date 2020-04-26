@@ -1,7 +1,7 @@
 {
   "name": "foodfy",
   "version": "1.0.0",
-  "main": "servers.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
@@ -12,13 +12,11 @@
   "devDependencies": {
     "nodemon": "^2.0.3"
   },
+  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alexandrevoliveira/foodfy.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/alexandrevoliveira/foodfy/issues"
   },

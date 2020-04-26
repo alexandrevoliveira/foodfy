@@ -1,0 +1,215 @@
+@import "https://fonts.googleapis.com/css?family=Bellota:400,700&display=swap";
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+:root {
+    --color-green: #50fa7b; 
+    --color-rocket: #7159c1;
+    --color-salmao: #FBDFDB;
+    --color-preto: #111111;
+    --color-cinza: #777777;
+    --color-footer: #eeeeee;
+
+}
+
+* {
+    margin:0;
+    border:0;
+    padding:0;
+    
+}
+
+body {
+    background-color: white;
+    font-family: "Roboto-bold";
+    color: var(--color-preto);
+
+}
+
+header {
+    max-width: 940px;
+    margin: 50px auto;
+
+}
+
+header div a {
+    color: black;
+    text-decoration: none;
+    font-size: 22px;
+    line-height: 32px;
+}
+
+.links a[id="title"] {
+    font-size: 28px;
+    line-height: 38px;
+    font-weight: lighter;
+    margin-right: 120px;
+    margin-left: 8px;
+}
+
+header div a + a + a{
+    margin-left: 30px;
+}
+
+.links a:hover {
+    color: var(--color-green);
+    transition: color 500ms;
+}
+
+.card-menu {
+    max-width: 940px;
+    height: 366px;
+    margin: 0 auto;
+    background-color: var(--color-salmao);
+    border-radius: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.card-menu .card-info {
+    text-align: left;
+    max-width: 320px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.card-info h1 {
+    margin-top: 70px;
+}
+
+.card-info p {
+    margin-top: 15px;
+}
+
+.card-chef {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.card-plates {
+    max-width: 940px;
+    margin: 0 auto;
+}
+
+.card-plates h1 {
+    margin-top: 40px;
+}
+
+.plates {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;    
+}
+
+.plate-image img {
+    max-width: 300px;
+    height: 140px;
+    border-radius: 15px;
+    margin-top: 24px;
+}
+
+.plate-title h1 {
+    color: #111111;
+    margin-top: 16px;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: lighter;
+}
+
+.plate-chef p {
+    color: var(--color-cinza);
+    font-size: 14px;
+    margin-top: 3px;
+}
+
+.info-footer {
+    color: var(--color-cinza);
+    background-color: var(--color-footer);
+    width: 100%;
+    height: 62px;
+    opacity: 100%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.info-footer p {
+    font-size: 14px;
+    line-height: 24px;
+    padding: 16px;
+}
+
+/* === ABOUT.HTML === */
+
+.about-foodfy {
+    max-width: 940px;
+    margin: 0 auto;
+}
+
+.info-about h1 {
+    margin-top: 50px;
+    font-size: 24px;
+    line-height: 34px;
+    font-weight: bold;
+}
+
+.info-start h1,
+.info-recipes h1 {
+    margin-top: 30px;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: bold;
+}
+
+.info-about p,
+.info-start p,
+.info-recipes p {
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.info-about p + p,
+.info-start p + p,
+.info-recipes p + p {
+    margin-top: 40px;
+}
+
+/* === MODAL === */
+
+.modal-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background-color: white;
+    max-width: 660px;
+    margin: 200px auto;
+    height: 500px;
+    border-radius: 16px;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    bottom: 10px;
+    left: 320px;
+}
+
+.modal-content img {
+    width: 90%;
+    margin: 0 auto;
+    position: absolute;
+    left: 32px;
+    top: 5%;
+    border-radius: 15px;
+}

@@ -1,21 +1,6 @@
-<!DOCTYPE html>
+{% extends "layout.njk" %}
 
-<html>
-
-    <head>
-        <title>Foodfy</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-
-    <body>
-        
-        <header>
-            <div class="links">
-                <a href="/" id="title">Foodfy</a>
-                <a href="about.html">Sobre</a>
-                <a href="recipes.html">Receitas</a>
-            </div>
-        </header>
+{% block content %}
 
         <div class="about-foodfy">
             <div class="info-about">
@@ -63,10 +48,4 @@
             </div>
         </div>
 
-        <div class="info-footer">
-            <p>Todos direitos reservados, receitas Foodfy.</p>
-        </div>        
-
-    </body>
-
-</html>
+{% endblock %}

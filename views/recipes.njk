@@ -1,218 +1,35 @@
-<!DOCTYPE html>
+{% extends "layout.njk" %}
 
-<html>
+{% block content %}
 
-    <head>
-        <title>Foodfy</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
+<section class="plates-recipes">
 
-    <body>
+    {% for plate in plates %}
+    <div class="plate-recipes" id="{{plate.id}}">
+        <div class="plate-image">
+            <img src="{{plate.image}}" alt="{{plate.title}}">
+        </div>
         
-        <header>
-            <div class="links">
-                <a href="/" id="title">Foodfy</a>
-                <a href="about.html">Sobre</a>
-                <a href="recipes.html">Receitas</a>
-            </div>
-        </header>
-        
-        <section class="card-plates">
-
-            <section class="plates">
-
-                <div class="plate" id="burger.png">
-                    <div class="plate-image">
-                        <img src="images/burger.png" alt="Image">
-                    </div>
-        
-                    <div class="plate-title">
-                        <h1>Triplo Bacon Burger</h1>
-                    </div>
-        
-                    <div class="plate-chef">
-                        <p>por Jorge Relato</p>
-                    </div>
-                </div>
-        
-                <div class="plate" id="pizza.png">
-                    <div class="plate-image">
-                        <img src="images/pizza.png" alt="Image">
-                    </div>
-        
-                    <div class="plate-title">
-                        <h1>Pizza 4 estações</h1>
-                    </div>
-        
-                    <div class="plate-chef">
-                        <p>por Fabiana Melo</p>
-                    </div>
-                </div>
-        
-                <div class="plate" id="espaguete.png">
-                    <div class="plate-image">
-                        <img src="images/espaguete.png" alt="Image">
-                    </div>
-        
-                    <div class="plate-title">
-                        <h1>Espaguete ao alho</h1>
-                    </div>
-        
-                    <div class="plate-chef">
-                        <p>por Júlia Kinoto</p>
-                    </div>
-                </div>        
-        
-                <div class="plate" id="lasanha.png">
-                    <div class="plate-image">
-                        <img src="images/lasanha.png" alt="Image">
-                    </div>
-        
-                    <div class="plate-title">
-                        <h1>Lasanha mac n' cheese</h1>
-                    </div>
-        
-                    <div class="plate-chef">
-                        <p>por Juliano Vieira</p>
-                    </div>
-                </div>
-                        
-                <div class="plate" id="doce.png">
-                    <div class="plate-image">
-                        <img src="images/doce.png" alt="Image">
-                    </div>
-        
-                    <div class="plate-title">
-                        <h1>Docinhos pão-do-céu</h1>
-                    </div>
-        
-                    <div class="plate-chef">
-                        <p>por Ricardo Golvea</p>
-                    </div>
-                </div>        
-        
-                <div class="plate" id="asinhas.png">
-                    <div class="plate-image">
-                        <img src="images/asinhas.png" alt="Image">
-                    </div>
-        
-                    <div class="plate-title">
-                        <h1>Asinhas de frango ao barbecue</h1>
-                    </div>
-        
-                    <div class="plate-chef">
-                        <p>por Vania Steroski</p>
-                    </div>
-                </div>
-
-                <div class="plate" id="burger.png">
-                    <div class="plate-image">
-                        <img src="images/burger.png" alt="Image">
-                    </div>
-        
-                    <div class="plate-title">
-                        <h1>Triplo Bacon Burger</h1>
-                    </div>
-        
-                    <div class="plate-chef">
-                        <p>por Jorge Relato</p>
-                    </div>
-                </div>
-        
-                <div class="plate" id="pizza.png">
-                    <div class="plate-image">
-                        <img src="images/pizza.png" alt="Image">
-                    </div>
-        
-                    <div class="plate-title">
-                        <h1>Pizza 4 estações</h1>
-                    </div>
-        
-                    <div class="plate-chef">
-                        <p>por Fabiana Melo</p>
-                    </div>
-                </div>
-        
-                <div class="plate" id="espaguete.png">
-                    <div class="plate-image">
-                        <img src="images/espaguete.png" alt="Image">
-                    </div>
-        
-                    <div class="plate-title">
-                        <h1>Espaguete ao alho</h1>
-                    </div>
-        
-                    <div class="plate-chef">
-                        <p>por Júlia Kinoto</p>
-                    </div>
-                </div>        
-        
-                <div class="plate" id="lasanha.png">
-                    <div class="plate-image">
-                        <img src="images/lasanha.png" alt="Image">
-                    </div>
-        
-                    <div class="plate-title">
-                        <h1>Lasanha mac n' cheese</h1>
-                    </div>
-        
-                    <div class="plate-chef">
-                        <p>por Juliano Vieira</p>
-                    </div>
-                </div>
-                        
-                <div class="plate" id="doce.png">
-                    <div class="plate-image">
-                        <img src="images/doce.png" alt="Image">
-                    </div>
-        
-                    <div class="plate-title">
-                        <h1>Docinhos pão-do-céu</h1>
-                    </div>
-        
-                    <div class="plate-chef">
-                        <p>por Ricardo Golvea</p>
-                    </div>
-                </div>        
-        
-                <div class="plate" id="asinhas.png">
-                    <div class="plate-image">
-                        <img src="images/asinhas.png" alt="Image">
-                    </div>
-        
-                    <div class="plate-title">
-                        <h1>Asinhas de frango ao barbecue</h1>
-                    </div>
-        
-                    <div class="plate-chef">
-                        <p>por Vania Steroski</p>
-                    </div>
-                </div>
-
-            </section>      
-
-        </section>
-
-        <div class="modal-overlay">
-            <div class="modal">
-                <div class="close-modal">
-                    <span class="material-icons">
-                        close
-                    </span>
-                </div>
-
-                <div class="modal-content">
-                    <img src="" alt="Plate Image">
-                </div>
-            </div>
+        <div class="plate-name">
+            <h1>{{ plate.title }}</h1>
+            <p>{{ plate.author }}</p>
         </div>
 
-        <div class="info-footer">
-            <p>Todos direitos reservados, receitas Foodfy.</p>
+        <div class="plate-ingredients">
+            <h1>Ingredientes</h1>
+            <span>esconder</span>
+            <ul>
+                {% for ingredient in plate.ingredients %}
+                    <li>{{ ingredient }}</li>
+                {% endfor %}
+            </ul>
         </div>
 
-        <script src="scripts.js"></script>
+    </div>
+    {% endfor %}
 
-    </body>
+</section> 
 
-</html>
+<script src="/scripts.js"></script>
+        
+{% endblock %}

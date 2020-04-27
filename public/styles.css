@@ -213,3 +213,12 @@ header div a + a + a{
     top: 5%;
     border-radius: 15px;
 }
+
+
+/* === RECIPES.NJK === */
+
+.plates-recipes {
+    width: 50%;
+    margin: 0 auto;
+    display: inline-block;
+}

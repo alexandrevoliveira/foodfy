@@ -26,7 +26,7 @@ body {
 }
 
 header {
-    max-width: 940px;
+    max-width: 72.5%;
     margin: 50px auto;
 
 }
@@ -56,7 +56,7 @@ header div a + a + a{
 }
 
 .card-menu {
-    max-width: 940px;
+    max-width: 72.5%;
     height: 366px;
     margin: 0 auto;
     background-color: var(--color-salmao);
@@ -86,23 +86,26 @@ header div a + a + a{
 }
 
 .card-plates {
-    max-width: 940px;
+    max-width: 72.5%;
     margin: 0 auto;
+    height: 40%;
 }
 
 .card-plates h1 {
     margin-top: 40px;
+    color: var(--color-cinza);
 }
 
 .plates {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;    
+    gap: 2%;    
 }
 
 .plate-image img {
-    max-width: 300px;
-    height: 140px;
+    max-width: 100%;
+    margin: 0 auto;
+    height: 100%;
     border-radius: 15px;
     margin-top: 24px;
 }
@@ -218,7 +221,73 @@ header div a + a + a{
 /* === RECIPES.NJK === */
 
 .plates-recipes {
-    width: 50%;
+    width: 72.5%;
     margin: 0 auto;
-    display: inline-block;
+}
+
+.plate-recipes img{
+    align-items: center;
+    width: 100%;
+    height: 340px;
+}
+
+.plate-name {
+    text-align: center;
+    margin-top: 24px;
+}
+
+.plate-name h1 {
+    font-size: 30px;
+    font-weight: bolder;
+    margin-bottom: 2px;
+    color: var(--color-preto);
+}
+
+.plate-name p {
+    font-size: 16px;
+    color: var(--color-cinza);
+}
+
+.plate-ingredients,
+.plate-preparation,
+.plate-information {
+    margin-top: 40px;
+} 
+
+.plate-ingredients span,
+.plate-preparation span,
+.plate-information span {
+    font-size: 18px;
+    font-weight: bolder;
+    color: var(--color-preto);
+    
+}
+
+.plate-ingredients span + span button,
+.plate-preparation span + span button,
+.plate-information span + span button{
+    font-size: 10px;
+    font-weight: lighter;
+    color: var(--color-cinza);
+    text-transform: uppercase;
+}
+
+.plate-ingredients ul {
+    margin-top: 8px;
+}
+
+.plate-ingredients ul li {
+    margin-left: 15px;
+}
+
+.plate-ingredients ul li,
+.plate-preparation p,
+.plate-information p {
+    padding: 4px;
+    color: rgba(54, 51, 51, 0.8);
+}
+
+.plate-preparation p,
+.plate-information p {
+    margin-top: 10px;
 }

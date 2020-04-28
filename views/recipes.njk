@@ -4,7 +4,6 @@
 
 <section class="plates-recipes">
 
-    {% for plate in plates %}
     <div class="plate-recipes" id="{{plate.id}}">
         <div class="plate-image">
             <img src="{{plate.image}}" alt="{{plate.title}}">
@@ -16,20 +15,34 @@
         </div>
 
         <div class="plate-ingredients">
-            <h1>Ingredientes</h1>
-            <span>esconder</span>
+            <span>Ingredientes</span>
+            <span><button>esconder</button></span>
             <ul>
                 {% for ingredient in plate.ingredients %}
-                    <li>{{ ingredient }}</li>
+                    <li>{{ ingredient }};</li>
                 {% endfor %}
             </ul>
         </div>
 
-    </div>
-    {% endfor %}
+        <div class="plate-preparation">
+            <span>Modo de preparation</span>
+            <span><button>mostrar</button></span>
+            {% for tip in plate.preparation %}
+                <p> {{ tip }} </p>
+            {% endfor %}
+        </div>
 
-</section> 
+        <div class="plate-information">
+            <span>Informações</span>
+            <span><button>esconder</button></span>
+            <p>{{ plate.information }}</p>
+        </div>
+
+    </div>
+
+</section>
 
 <script src="/scripts.js"></script>
+
         
 {% endblock %}

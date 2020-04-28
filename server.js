@@ -9,7 +9,9 @@ server.use(express.static('public'))
 server.set("view engine", "njk")
 
 nunjucks.configure("views",{
-    express: server
+    express: server,
+    autoescape: false,
+    noCache: true
 })
 
 server.get("/", function(req, res) {
@@ -20,8 +22,13 @@ server.get("/about", function(req, res) {
     res.render("about")
 })
 
-server.get("/recipes", function(req, res) {
-    res.render("recipes", { plates })
+server.get("/recipes/:index", function(req, res) {
+    const recipes = plates
+    const recipeIndex = req.params.index
+    
+    const recipe = recipes[recipeIndex]
+
+    return res.render("recipes", { plate: recipe })
 })
 
 server.listen(5000, function(){

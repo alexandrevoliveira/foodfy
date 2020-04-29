@@ -1,14 +1,19 @@
-const modalOverlay = document.querySelector('.modal-overlay')
 const plates = document.querySelectorAll('.plate')
 
-for (let plate of plates) {
-    plate.addEventListener("click", function(){
-        const plateId = plate.getAttribute('id')
-        modalOverlay.classList.add('active')
-        modalOverlay.querySelector('img').src = `images/${plateId}`
+for (let i = 0; i < plates.length; i++) {
+    plates[i].addEventListener("click", function() {
+        window.location.href = `/recipes/${i}`
     })
 }
 
-document.querySelector('.close-modal').addEventListener("click", function(){
-    modalOverlay.classList.remove('active')
-})
+/*
+ALTERNATIVE WAY
+
+for (let plate of plates) {
+    plate.addEventListener("click", function(){
+        const index = plate.id
+        window.location.href = `/recipes/${index}`
+    })
+}
+*/
+

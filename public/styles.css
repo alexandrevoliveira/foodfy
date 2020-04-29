@@ -108,6 +108,7 @@ header div a + a + a{
     height: 100%;
     border-radius: 15px;
     margin-top: 24px;
+    cursor: pointer;
 }
 
 .plate-title h1 {

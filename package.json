@@ -11,14 +11,5 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
-  },
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alexandrevoliveira/foodfy.git"
-  },
-  "bugs": {
-    "url": "https://github.com/alexandrevoliveira/foodfy/issues"
-  },
-  "homepage": "https://github.com/alexandrevoliveira/foodfy#readme"
+  }
 }

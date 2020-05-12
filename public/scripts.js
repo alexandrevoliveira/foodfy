@@ -24,7 +24,7 @@ const botoes = document.querySelectorAll('.visibility')
 
 for (let i = 0; i < botoes.length; i++) {
     botoes[i].addEventListener("click", function() {
-        if (recipeInfo[i].classList.contains('hide')) { // retorna true se contem 'hide' no atributo de classe
+        if (recipeInfo[i].classList.contains('hide')) { // retorna true se contem 'hide' no atributo de classe (VALOR BOTAO == 'MOSTRAR')
             recipeInfo[i].classList.remove('hide') // como está escondendo o conteúdo, após o clique irá remover o 'hide'
             botoes[i].innerHTML = "ESCONDER" // após o clique o conteúdo está exposto, logo o conteúdo do botão precisa mudar para 'ESCONDER'
         }

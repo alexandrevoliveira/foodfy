@@ -1,0 +1,29 @@
+{% extends 'layout.njk' %}
+
+{% block content %}
+
+<section class="card-content">
+
+    <h1>Gerenciar receitas</h1>
+
+    <section class="cards">
+
+        {% for plate in plates %}
+            <div class="card">
+                <div class="card-image">
+                    <img src="{{plate.image}}" alt="{{plate.name}}">            
+                </div>
+                <div class="card-info">
+                    <div class="plate-title">{{plate.title}}</div>
+                    <div class="plate-author">por {{plate.author}}</div>
+                    <div class="plate-button"><a href="/admin/recipes/{{plate.id}}">Visualizar</a></div>
+                </div>            
+            </div>
+        {% endfor %}
+            
+    </section>
+
+</section>
+
+
+{% endblock %}

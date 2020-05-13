@@ -17,8 +17,6 @@ for (let plate of plates) {
 }
 */
 
-
-
 const recipeInfo = document.querySelectorAll('.recipe-info')
 const botoes = document.querySelectorAll('.visibility')
 

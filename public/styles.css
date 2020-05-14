@@ -30,6 +30,8 @@ header{
     height: 80px;
 }
 
+/* === INDEX.NJK === */
+
 header img {
     padding: 27px 0 27px 240px;
 }
@@ -63,7 +65,7 @@ header img {
     border-radius: 8px;
 }
 
-.card-info .plate-title {
+.card-info .recipe-title {
     font-size: 18px;
     font-family: 'Roboto-Regular', sans-serif;
     font-weight: 400;
@@ -71,38 +73,26 @@ header img {
     margin-bottom: 5px;
 }
 
-.card-info .plate-author {
+.card-info .recipe-author {
     font-size: 14px;
     font-family: 'Roboto-Regular', sans-serif;
     color: var(--color-cinza);
     margin-bottom: 10px;
 }
 
-.card-info .plate-button a {
+.card-info .recipe-button a {
     text-decoration: none;
     color: #6558C3 100%;
     font-family: 'Roboto-Bold', sans-serif;
 }
-
-
-
-
-
-
-
-
-
 
 /* === SHOW.NJK (RECIPES/:id) === */
 
 .menu-title {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: 55px 0 24px 0;
-}
-
-.menu-title div {
-    display: grid;
+    max-width: 940px;
+    margin: 55px auto 40px;
 }
 
 .menu-title div:first-child {
@@ -133,26 +123,26 @@ header img {
     display: grid;
 }
 
-.plate-recipes img{
+.recipe-recipes img{
     width: 940px;
     margin: 0 auto;
     height: 280px;
     border-radius: 15px;
 }
 
-.plate-name {
+.recipe-name {
     text-align: center;
     margin-top: 24px;
 }
 
-.plate-name h1 {
+.recipe-name h1 {
     font-size: 30px;
     font-weight: bolder;
     margin-bottom: 2px;
     color: var(--color-preto);
 }
 
-.plate-name p {
+.recipe-name p {
     font-size: 16px;
     color: var(--color-cinza);
 }
@@ -197,3 +187,6 @@ header img {
     visibility: hidden;
     height: 0;
 }
+
+/* === CREATE.NJK === */
+

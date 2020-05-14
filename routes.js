@@ -1,6 +1,7 @@
 const express = require('express')
 const routes = express.Router()
 const data = require('./data.json')
+const recipes = require('./controllers/recipes')
 
 
 
@@ -8,22 +9,11 @@ routes.get("/", function(req, res) {
     res.redirect("/admin/recipes")
 })
 
-routes.get("/admin/recipes", function(req, res) {
-    res.render("index", { plates: data.plates})
-})
+routes.get("/admin/recipes", recipes.index)
 
-routes.get("/admin/recipes/:id", function(req, res) {
-    const { id } = req.params
+routes.get("/admin/recipes/create", recipes.create)
 
-    const foundPlate = data.plates.find(function(plate){
-        return plate.id == id
-    })
+routes.get("/admin/recipes/:id", recipes.show)
 
-    if(!foundPlate) {
-        return res.send("Plate not found!")
-    }
-
-    return res.render("show", { plate: foundPlate })
-})
 
 module.exports = routes

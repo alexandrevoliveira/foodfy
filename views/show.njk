@@ -1,29 +1,33 @@
 {% extends "layout.njk" %}
 
+{% block bodyhead %}
+
+    <div class="menu-title">
+        <div>Receita: {{recipe.title}}</div>
+        <div><a href="">Editar Receita</a></div>
+    </div>    
+
+{% endblock %}
+
 {% block content %}
 
 <section class="recipes-menu">
 
-    <div class="menu-title">
-        <div>Receita: {{plate.title}}</div>
-        <div><a href="">Editar Receita</a></div>
-    </div>
-
-    <div class="plate-recipes" id="{{plate.id}}">
-        <div class="plate-image">
-            <img src="{{plate.image}}" alt="{{plate.title}}">
+    <div class="recipe-recipes" id="{{recipe.id}}">
+        <div class="recipe-image">
+            <img src="{{recipe.image}}" alt="{{recipe.title}}">
         </div>
         
-        <div class="plate-name">
-            <h1>{{ plate.title }}</h1>
-            <p>por {{ plate.author }}</p>
+        <div class="recipe-name">
+            <h1>{{ recipe.title }}</h1>
+            <p>por {{ recipe.author }}</p>
         </div>
 
         <section class="recipe-content">
             <h3>Ingredientes <button class="visibility">ESCONDER</button></h3>
             <div class="recipe-info">
                 <ul>
-                    {% for ingredient in plate.ingredients %}
+                    {% for ingredient in recipe.ingredients %}
                         <li>{{ ingredient }};</li>
                     {% endfor %}
                 </ul>
@@ -31,14 +35,14 @@
 
             <h3>Modo de preparo <button class="visibility">MOSTRAR</button></h3>
             <div class="recipe-info hide">
-                {% for tip in plate.preparation %}
+                {% for tip in recipe.preparation %}
                     <p>- {{ tip }}; </p>
                 {% endfor %}
             </div>
 
             <h3>Modo de preparo <button class="visibility">ESCONDER</button></h3>
             <div class="recipe-info">
-                <p>{{ plate.information }}</p>
+                <p>{{ recipe.information }}</p>
             </div>
 
         </section>

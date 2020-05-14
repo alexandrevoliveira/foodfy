@@ -8,15 +8,15 @@
 
     <section class="cards">
 
-        {% for plate in plates %}
+        {% for recipe in recipes %}
             <div class="card">
                 <div class="card-image">
-                    <img src="{{plate.image}}" alt="{{plate.name}}">            
+                    <img src="{{recipe.image}}" alt="{{recipe.name}}">            
                 </div>
                 <div class="card-info">
-                    <div class="plate-title">{{plate.title}}</div>
-                    <div class="plate-author">por {{plate.author}}</div>
-                    <div class="plate-button"><a href="/admin/recipes/{{plate.id}}">Visualizar</a></div>
+                    <div class="recipe-title">{{recipe.title}}</div>
+                    <div class="recipe-author">por {{recipe.author}}</div>
+                    <div class="recipe-button"><a href="/admin/recipes/{{recipe.id}}">Visualizar</a></div>
                 </div>            
             </div>
         {% endfor %}

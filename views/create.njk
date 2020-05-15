@@ -1,29 +1,24 @@
 {% extends "layout.njk" %}
 
-{% block bodyhead %}
 
-    <div class="menu-title">
-        <div>Criando receita</div>
-        <div><a href="">Salvar Receita</a></div>
-    </div>    
-
-{% endblock %}
 
 {% block content %}
-    <form class="recipes-input" action="" method="POST">
-        <input 
-            type="url" 
-            name="image"
-            value="{{recipe.image}}"
-        >
-        <input 
-            type="text" 
-            name="ingredients"
-            value="{{recipe.ingredients}}"
-        >
-        <input type="text">
-    
-    
+    <form class="recipes-input" action="/admin/recipes" method="POST">
+
+        {% block formhead %}
+
+            <div class="menu-title">
+                <div>Criando receita</div>
+                <button type="submit">Criar Receita</button>
+            </div>    
+
+        {% endblock %}
+
+        {% include 'fields.njk' %}
+               
     </form>
+
+    <script src="/scripts.js"></script>
+
 
 {% endblock %}

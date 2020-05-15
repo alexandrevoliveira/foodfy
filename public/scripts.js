@@ -1,22 +1,4 @@
-const plates = document.querySelectorAll('.plate')
-
-for (let i = 0; i < plates.length; i++) {
-    plates[i].addEventListener("click", function() {
-        window.location.href = `/recipes/${i}` //após o clique irá para esta rota associada
-    })
-}
-
-/*
-ALTERNATIVE WAY
-
-for (let plate of plates) {
-    plate.addEventListener("click", function(){
-        const index = plate.id
-        window.location.href = `/recipes/${index}`
-    })
-}
-*/
-
+//BOTÕES (ESCONDER/MOSTRAR) (/admin/recipes/:id)
 const recipeInfo = document.querySelectorAll('.recipe-info')
 const botoes = document.querySelectorAll('.visibility')
 
@@ -32,3 +14,34 @@ for (let i = 0; i < botoes.length; i++) {
         }
     })
 }
+
+
+function addIngredient() {
+    const ingredients = document.querySelector("#ingredients")
+    const fieldContainer = document.querySelectorAll(".box-ingredient")
+
+    // realiza um clone do último ingrediente adicionado
+    const newField = fieldContainer[fieldContainer.length - 1].cloneNode(true)
+
+    //Não adiciona um novo input se o último tem um valor vazio
+    if (newField.children[0].value == "") return false
+
+    // Deixa o valor do input vazio
+    newField.children[0].value = ""
+    ingredients.appendChild(newField)
+}
+
+function addPreparation() {
+    const preparations = document.querySelector("#preparation-method")
+    const fieldContainer = document.querySelectorAll(".box-preparation")
+
+    const newField = fieldContainer[fieldContainer.length - 1].cloneNode(true)
+
+    if(newField.children[0].value == "") return false
+
+    newField.children[0].value = ""
+    preparations.appendChild(newField)
+}
+
+document.querySelector(".add-ingredient").addEventListener("click", addIngredient)
+document.querySelector(".add-preparation").addEventListener("click", addPreparation)

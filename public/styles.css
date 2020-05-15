@@ -10,6 +10,7 @@
     --color-cinza: #777777;
     --color-footer: #eeeeee;
     --color-recipe: rgba(54, 51, 51, 0.8);
+    --color-button: #6558C3;
 }
 
 * {
@@ -93,6 +94,7 @@ header img {
     grid-template-columns: 1fr 1fr;
     max-width: 940px;
     margin: 55px auto 40px;
+    position: relative;
 }
 
 .menu-title div:first-child {
@@ -102,16 +104,13 @@ header img {
     color: var(--color-preto);
 }
 
-.menu-title div:last-child {
-    position: relative;
-}
-
-.menu-title div:last-child a{
+.menu-title div:last-child a,
+.menu-title button[type="submit"] {
     text-decoration: none;
     font-size: 16px;
     position: absolute;
     right: 0;
-    background: #6558C3 100%;
+    background: var(--color-button) 100%;
     color: #FFFFFF;
     padding: 8px 20px;
     border-radius: 4px;
@@ -158,7 +157,7 @@ header img {
 .recipe-content button {
     font-size: 10px;
     margin-left: 8px;
-    background: #6558C3 100%;
+    background: var(--color-button) 100%;
     color: #FFFFFF;
     padding: 1px 4px;
     border-radius: 4px;
@@ -190,3 +189,30 @@ header img {
 
 /* === CREATE.NJK === */
 
+.recipes-input .item {
+    width: 940px;
+    margin: 0 auto 16px;
+}
+
+.recipes-input .item input {
+    width: 100%;
+    height: 32px;
+    border: 1px solid #DDDDDD;
+    font-size: 16px;
+    margin: 8px auto 16px;
+    border-radius: 4px;
+    padding: 0 8px;
+}
+
+.recipes-input .item button {
+    background: var(--color-button) 100%;
+    color: #FFFFFF;
+    padding: 2px 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 16px;
+}
+
+.recipes-input .item:last-child input {
+    height: 240px;
+}

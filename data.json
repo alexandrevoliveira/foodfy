@@ -1,5 +1,5 @@
 {
-    "recipes": [
+  "recipes": [
     {
       "id": 1,
       "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/burger.png",
@@ -138,6 +138,71 @@
         "açúcar de confeiteiro e corte em quadrados"
       ],
       "information": ""
+    },
+    {
+      "id": 7,
+      "image": "https://source.unsplash.com/-YHSwy6uqvk",
+      "title": "Café da manha",
+      "author": "Lily Banse",
+      "ingredients": [
+        "carne",
+        "molhos",
+        "cebola"
+      ],
+      "preparation": [
+        "so sei que nada sei",
+        "dobra a direita"
+      ],
+      "information": "prato feito por um leigo"
+    },
+    {
+      "id": 8,
+      "image": "https://source.unsplash.com/fdlZBWIP0aM",
+      "title": "Sanduíche de Ovo",
+      "author": "Joseph Gonzalez",
+      "ingredients": [
+        "pão",
+        "ovo",
+        "mato",
+        "plantinha (hmmmmm...)"
+      ],
+      "preparation": [
+        "frita o ovo enquanto frita o pao",
+        "meio kg de sal",
+        "plantinhas pra deixar o prato muito chique e afeminado"
+      ],
+      "information": "Cuidado pra não queimar otaro!! Não disse o que (a rosca)"
+    },
+    {
+      "id": 9,
+      "image": "https://source.unsplash.com/ZuIDLSz3XLg",
+      "title": "Salada",
+      "author": "Eiliv",
+      "ingredients": [
+        "Alface",
+        "Cebola",
+        "azeitona"
+      ],
+      "preparation": [
+        "bota na panela e esquenta"
+      ],
+      "information": "cuidado para nao queimar"
+    },
+    {
+      "id": 10,
+      "image": "https://source.unsplash.com/ZuIDLSz3XLg",
+      "title": "Salada",
+      "author": "Eiliv",
+      "ingredients": [
+        "Cebola",
+        "Alface",
+        "Azeitona"
+      ],
+      "preparation": [
+        "bota na panela e esquenta",
+        ""
+      ],
+      "information": "cuidado para nao queimar"
     }
-]
+  ]
 }

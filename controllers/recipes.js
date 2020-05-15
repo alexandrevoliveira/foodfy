@@ -81,7 +81,7 @@ exports.edit = function(req, res) {
 
 exports.put = function(req, res) {
     const { id } = req.body
-    index = 0
+    let index = 0
 
     const foundRecipe = data.recipes.find(function(recipe, foundIndex) {
         if (recipe.id == id) {

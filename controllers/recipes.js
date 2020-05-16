@@ -84,7 +84,7 @@ exports.put = function(req, res) {
     let index = 0
 
     const foundRecipe = data.recipes.find(function(recipe, foundIndex) {
-        if (recipe.id == id) {
+        if ( recipe.id == id ) {
             index = foundIndex
             return true
         }
@@ -92,10 +92,15 @@ exports.put = function(req, res) {
 
     if(!foundRecipe) return res.send("Recipe not found")
 
+    const filterIngredient = foundRecipe.ingredients.filter(ingredient => ingredient != "")
+    const filterPreparation = foundRecipe.preparation.filter(item => item != "")
+
     const recipe = {
         id: Number(req.body.id),
         ...foundRecipe,
-        ...req.body
+        ...req.body,
+        ingredients: filterIngredient,
+        preparation: filterPreparation
     }
 
     data.recipes[index] = recipe

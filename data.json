@@ -140,19 +140,18 @@
       "information": ""
     },
     {
-      "id": "7",
-      "image": "https://source.unsplash.com/ZuIDLSz3XLg",
-      "title": "Salada",
-      "author": "Eiliv",
+      "id": 7,
+      "image": "https://source.unsplash.com/fdlZBWIP0aM",
+      "title": "Café da manha",
+      "author": "Lily Banse",
       "ingredients": [
-        "Alface",
-        "Cebola"
+        "carne",
+        "cebola"
       ],
       "preparation": [
-        "bota na panela e esquenta",
-        "deixa esfriar durante 2 minutos"
+        "bota na panela e esquenta"
       ],
-      "information": "cuidado para nao queimar"
+      "information": "."
     }
   ]
 }

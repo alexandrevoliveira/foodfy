@@ -216,3 +216,42 @@ header img {
 .recipes-input .item:last-child input {
     height: 240px;
 }
+
+/* === FORM-DELETE === */
+
+.forms-edit {
+    max-width: 940px;
+    margin: 0 auto;
+}
+
+#form-delete,
+.forms-edit .recipes-input {
+    position: relative;
+}
+
+#form-delete button[type="submit"] {
+    width: 10%;
+    font-size: 16px;
+    padding: 8px 20px;
+    box-sizing: border-box;
+    background: lightcoral;
+    color: #FFFFFF;
+    border-radius: 4px;
+    position: absolute;
+    right: 180px;
+    top: -70px;
+}
+
+.forms-edit .recipes-input button[type="submit"] {
+    width: 16%;
+    font-size: 16px;
+    padding: 8px 20px;
+    box-sizing: border-box;
+    background: var(--color-rocket);
+    color: #FFFFFF;
+    border-radius: 4px;
+    position: absolute;
+    right: 0;
+    top: -70px;
+}
+

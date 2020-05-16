@@ -38,7 +38,7 @@ exports.post = function(req, res) {
     let id = 1
     const lastRecipe = data.recipes[data.recipes.length - 1]
     if (lastRecipe) {
-        id = lastRecipe.id + 1
+        id = Number(lastRecipe.id) + 1
     }
 
     let ingredients = req.body.ingredients.filter(function(ingredient) {
@@ -96,9 +96,8 @@ exports.put = function(req, res) {
     const filterPreparation = foundRecipe.preparation.filter(item => item != "")
 
     const recipe = {
-        id: Number(req.body.id),
+        id: Number(foundRecipe.id),
         ...foundRecipe,
-        ...req.body,
         ingredients: filterIngredient,
         preparation: filterPreparation
     }
@@ -109,5 +108,21 @@ exports.put = function(req, res) {
         if (err) return res.send("Writing data error")
 
         return res.redirect(`/admin/recipes`)
+    })
+}
+
+exports.delete = function(req, res) {
+    const { id } = req.body
+
+    const filteredRecipes = data.recipes.filter(function(recipe) {
+        return recipe.id != id
+    })
+
+    data.recipes = filteredRecipes
+
+    fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
+        if (err) return res.send("Writing data error")
+
+        return res.redirect("/admin/recipes")
     })
 }

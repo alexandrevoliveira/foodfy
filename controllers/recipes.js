@@ -92,8 +92,8 @@ exports.put = function(req, res) {
 
     if(!foundRecipe) return res.send("Recipe not found")
 
-    const filterIngredient = foundRecipe.ingredients.filter(ingredient => ingredient != "")
-    const filterPreparation = foundRecipe.preparation.filter(item => item != "")
+    const filterIngredient = req.body.ingredients.filter(ingredient => ingredient != "")
+    const filterPreparation = req.body.preparation.filter(item => item != "")
 
     const recipe = {
         id: Number(foundRecipe.id),

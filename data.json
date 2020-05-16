@@ -140,17 +140,17 @@
       "information": ""
     },
     {
-      "id": 7,
+      "id": "7",
       "image": "https://source.unsplash.com/ZuIDLSz3XLg",
       "title": "Salada",
       "author": "Eiliv",
       "ingredients": [
         "Alface",
-        "Cebola",
-        "azeitona"
+        "Cebola"
       ],
       "preparation": [
-        "bota na panela e esquenta"
+        "bota na panela e esquenta",
+        "deixa esfriar durante 2 minutos"
       ],
       "information": "cuidado para nao queimar"
     }

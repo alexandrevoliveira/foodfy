@@ -37,24 +37,43 @@ header img {
     padding: 27px 0 27px 240px;
 }
 
-.card-content {
-    width: 960px;
-    margin: 70px auto;
+.menu-title-index {    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 940px;
+    margin: 55px auto 40px;
+    position: relative;
 }
 
-.card-content h1 {
+.menu-title-index div:first-child,
+.menu-title div:first-child {
     font-size: 24px;
+    font-family: 'Roboto-Bold', sans-serif;
     font-weight: bold;
-    margin-bottom: 30px;
+    color: var(--color-preto);
 }
 
-.card-content .cards {
+.menu-title-index div:last-child a,
+.menu-title div:last-child a,
+.menu-title button[type="submit"] {
+    text-decoration: none;
+    font-size: 16px;
+    position: absolute;
+    right: 0;
+    background: var(--color-button) 100%;
+    color: #FFFFFF;
+    padding: 8px 20px;
+    border-radius: 4px;
+}
+
+.cards {
+    width: 960px;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
-
-.card-content .cards .card {
+.cards .card {
     max-width: 480px;
     display: grid;
     grid-template-columns: 1fr 60%;
@@ -95,25 +114,6 @@ header img {
     max-width: 940px;
     margin: 55px auto 40px;
     position: relative;
-}
-
-.menu-title div:first-child {
-    font-size: 24px;
-    font-family: 'Roboto-Bold', sans-serif;
-    font-weight: bold;
-    color: var(--color-preto);
-}
-
-.menu-title div:last-child a,
-.menu-title button[type="submit"] {
-    text-decoration: none;
-    font-size: 16px;
-    position: absolute;
-    right: 0;
-    background: var(--color-button) 100%;
-    color: #FFFFFF;
-    padding: 8px 20px;
-    border-radius: 4px;
 }
 
 .recipes-menu {

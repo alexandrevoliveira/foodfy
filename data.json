@@ -153,6 +153,23 @@
         "bota na panela e esquenta"
       ],
       "information": "."
+    },
+    {
+      "id": 8,
+      "image": "https://source.unsplash.com/r01ZopTiEV8",
+      "title": "Seafood Pasta",
+      "author": "Olayianka Babalola",
+      "ingredients": [
+        "Seafood",
+        "Pasta",
+        "Shrimps",
+        "Tomatoes"
+      ],
+      "preparation": [
+        "Put all recipes over the table",
+        "Put all recipes in a pan"
+      ],
+      "information": "watch out to not burn it"
     }
   ]
 }

@@ -1,7 +1,6 @@
 const express = require('express')
 const routes = express.Router()
-const data = require('./data.json')
-const recipes = require('./controllers/recipes')
+const recipes = require('./app/controllers/recipes')
 
 routes.get("/", function(req, res) {
     res.redirect("/admin/recipes")

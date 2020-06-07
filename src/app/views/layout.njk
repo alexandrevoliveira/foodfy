@@ -9,13 +9,7 @@
 
     <body>
         
-        <header>
-            <div class="links">
-                <a href="/admin/recipes" id="title"><img src="/images/logo.png"></a>
-            </div>
-        </header>
-
-        {% block bodyhead %}{% endblock %}
+        {% include 'parts/header.njk' %}
 
         {% block content %}{% endblock %}
 

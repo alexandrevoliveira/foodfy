@@ -1,5 +1,5 @@
 @import "https://fonts.googleapis.com/css?family=Bellota:400,700&display=swap";
-@import "https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap";
+@import 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap';
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 
 :root {
@@ -15,27 +15,61 @@
 
 * {
     margin:0;
-    border:0;
+    border:none;
     padding:0;
     
+    text-decoration: none;
+    box-sizing: border-box;
+    list-style-type: none;
 }
 
 body {
     background-color: white;
-    font-family: "Roboto-Bold", sans-serif;
+    font-family: "Roboto", sans-serif;
     color: var(--color-preto);
 }
 
+/* === HEADER === */
+
 header{
     background-color: var(--color-preto);
-    height: 80px;
+    padding: 27px;
 }
 
+header .container {
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 940px;
+    margin: 0 auto;
+}
+
+/* === LOGO === */
+
+.logo img {
+    width: 90px;
+    height: 27px;
+    margin-right: 50px;
+}
+
+/* === HEADER .LINKS === */
+
+header .container .links {
+    display: flex;
+    grid-gap: 30px;
+}
+
+header .container .links a {
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
 /* === INDEX.NJK === */
 
-header img {
-    padding: 27px 0 27px 240px;
-}
 
 .menu-title-index {    
     display: grid;

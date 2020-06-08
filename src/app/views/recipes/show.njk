@@ -1,15 +1,12 @@
 {% extends "layout.njk" %}
 
-{% block bodyhead %}
-
-    <div class="menu-title">
-        <div>Receita: {{recipe.title}}</div>
-        <div><a href="/admin/recipes/{{ recipe.id }}/edit">Editar Receita</a></div>
-    </div>    
-
-{% endblock %}
 
 {% block content %}
+
+<div class="menu-title">
+    <div>Receita: {{recipe.title}}</div>
+    <div><a href="/admin/recipes/{{ recipe.id }}/edit">Editar Receita</a></div>
+</div>    
 
 <section class="recipes-menu">
 
@@ -40,7 +37,7 @@
                 {% endfor %}
             </div>
 
-            <h3>Modo de preparo <button class="visibility">ESCONDER</button></h3>
+            <h3>Informações adicionais <button class="visibility">ESCONDER</button></h3>
             <div class="recipe-info">
                 <p>{{ recipe.information }}</p>
             </div>

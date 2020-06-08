@@ -3,8 +3,8 @@ CREATE TABLE "recipes" (
     "chef_id" int,
     "image" text,
     "title" text,
-    "ingredients" text[],
-    "preparation" text[],
+    "ingredients" text[ ],
+    "preparation" text[ ],
     "information" text,
     "created_at" timestamp DEFAULT (now())
 );

@@ -34,6 +34,7 @@ body {
 header{
     background-color: var(--color-preto);
     padding: 27px;
+    margin-bottom: 50px;
 }
 
 header .container {
@@ -75,7 +76,7 @@ header .container .links a {
     display: grid;
     grid-template-columns: 1fr 1fr;
     max-width: 940px;
-    margin: 55px auto 40px;
+    margin: 0 auto 40px;
     position: relative;
 }
 
@@ -146,7 +147,7 @@ header .container .links a {
     display: grid;
     grid-template-columns: 1fr 1fr;
     max-width: 940px;
-    margin: 55px auto 40px;
+    margin: 0px auto 50px;
     position: relative;
 }
 
@@ -223,12 +224,14 @@ header .container .links a {
 
 /* === CREATE.NJK === */
 
-.recipes-input .item {
+.recipes-input .item,
+.chefs-input .item {
     width: 940px;
     margin: 0 auto 16px;
 }
 
-.recipes-input .item input {
+.recipes-input .item input,
+.chefs-input .item input {
     width: 100%;
     height: 32px;
     border: 1px solid #DDDDDD;
@@ -238,7 +241,8 @@ header .container .links a {
     padding: 0 8px;
 }
 
-.recipes-input .item button {
+.recipes-input .item button,
+.chefs-input .item button {
     background: var(--color-button) 100%;
     color: #FFFFFF;
     padding: 2px 6px;
@@ -247,9 +251,6 @@ header .container .links a {
     margin-bottom: 16px;
 }
 
-.recipes-input .item:last-child input {
-    height: 240px;
-}
 
 /* === FORM-DELETE === */
 
@@ -259,7 +260,8 @@ header .container .links a {
 }
 
 #form-delete,
-.forms-edit .recipes-input {
+.forms-edit .recipes-input,
+.forms-edit .chefs-input {
     position: relative;
 }
 
@@ -276,7 +278,8 @@ header .container .links a {
     top: -70px;
 }
 
-.forms-edit .recipes-input button[type="submit"] {
+.forms-edit .recipes-input button[type="submit"],
+.forms-edit .chefs-input button[type="submit"] {
     width: 16%;
     font-size: 16px;
     padding: 8px 20px;
@@ -287,5 +290,70 @@ header .container .links a {
     position: absolute;
     right: 0;
     top: -70px;
+    cursor: pointer;
 }
 
+
+/* === CHEFS INDEX.NJK ===*/
+
+.chef-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 30px;
+}
+
+.chef-card {
+    width: 230px;
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    grid-gap: 20px;
+    align-items: center;
+}
+
+.chef-card .chef-avatar img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 1px solid white;
+    box-shadow: 2px 2px 2px -1px;   
+}
+
+.chef-card .card-info div:first-child h1{
+    font-size: 16px;
+    font-family: 'Roboto-Regular', sans-serif;
+    font-weight: normal;
+    color: var(--color-preto);
+    margin-bottom: 8px;
+    align-items: center;
+}
+
+.chef-card .card-info div:last-child a {
+    color: var(--color-button);
+    font-size: 14px;
+    font-weight: bold;
+    align-items: center;
+}
+
+/* === CHEFS SHOW.NJK ===*/
+
+.container .chef-info {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.chef-image img {
+    height: 200px; 
+    width: 200px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+}
+
+.chef-name h1 {
+    color: var(--color-preto);
+    font-size: 36px;
+    font-weight: bold;
+}

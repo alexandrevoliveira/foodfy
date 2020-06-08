@@ -9,21 +9,46 @@ module.exports = {
         })
     },
     show(req, res) {
-        res.render("recipes/index")
+
+        const { id } = req.params
+
+        Recipe.find(id, function(recipe) {
+            res.render("recipes/show", { recipe })
+
+        })
     },
-    create(req, res) {
-        res.render("recipes/index")
+    create(req, res) {        
+        return res.render("recipes/create")
     },
     post(req, res) {
-        res.render("recipes/index")
+        // const keys = Object.keys(req.body)
+    
+        // for(let key of keys) {
+        //     if(req.body[key] == "") return res.send("Please fill all fields")
+        // }
+
+        Recipe.create(req.body, function(recipe) {
+            return res.redirect(`/admin/recipes/${recipe.id}`)
+        })
     },
     edit(req, res) {
-        res.render("recipes/index")
+
+        const { id } = req.params
+
+        Recipe.find(id, function(recipe) {
+            res.render("recipes/edit", { recipe })
+
+        })
     },
     put(req, res) {
-        res.render("recipes/index")
+
+        Recipe.update(req.body, function(){
+            res.redirect(`/admin/recipes/${req.body.id}`)
+        })
     },
     delete(req, res) {
-        res.render("recipes/index")
+        Recipe.delete(req.body.id, function(){
+            return res.redirect(`/admin/recipes/${req.body.id}`)
+        })
     }
 }

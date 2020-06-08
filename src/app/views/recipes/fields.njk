@@ -18,12 +18,15 @@
 </div>
 
 <div class="item">
-    <div>Autor da Receita</div>
-    <input 
-        type="text" 
-        name="author"
-        value="{{recipe.author}}"
-    >
+    <div>Chef</div>
+    <select name="chef_id">
+        {% for chef in chefsOptions %}
+            <option value="{{chef.id}}"
+            {%if recipe.chef_id == chef.id %}selected{%endif%}>
+                {{chef.name}}
+            </option>
+        {% endfor %}
+    </select>
 </div>
 
 
@@ -35,7 +38,7 @@
                 <div class="box-ingredient">
                     <input 
                         type="text" 
-                        name="ingredients" 
+                        name="ingredients[]" 
                         value="{{ ingredient }}" 
                         placeholder="Ingrediente"
                     >
@@ -45,7 +48,7 @@
             <div class="box-ingredient">
                 <input 
                     type="text" 
-                    name="ingredients" 
+                    name="ingredients[]" 
                     placeholder="Ingrediente"
                 >
             </div>
@@ -62,7 +65,7 @@
                 <div class="box-preparation">
                     <input 
                         type="text" 
-                        name="preparation" 
+                        name="preparation[]" 
                         value="{{ preparation }}" 
                         placeholder="Modo de preparo"
                     >
@@ -72,7 +75,7 @@
             <div class="box-preparation">
                 <input 
                     type="text" 
-                    name="preparation" 
+                    name="preparation[]" 
                     placeholder="Modo de preparo"
                 >
             </div>
@@ -83,9 +86,6 @@
 
 <div class="item">
     <div>Informações adicionais</div>
-    <input 
-        type="text" 
-        name="information"
-        value="{{recipe.information}}"
-    >
+    <textarea name="information" cols="30" rows="10">{{recipe.information}}</textarea>
 </div>
+

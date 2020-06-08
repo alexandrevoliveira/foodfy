@@ -2,7 +2,11 @@ const db = require('../../config/db')
 
 module.exports = {
     all(callback) {
-        db.query(`SELECT recipes.* FROM recipes`, function(err, results){
+        db.query(`
+            SELECT recipes.*, chefs.name AS chef
+            FROM recipes
+            LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
+            WHERE recipes.chef_id is NOT NULL`, function(err, results){
             if (err) throw `Database error! ${err}`
 
             callback(results.rows)
@@ -13,16 +17,18 @@ module.exports = {
             INSERT INTO recipes (
                 image,
                 title,
+                chef_id,
                 ingredients,
                 preparation,
                 information
-            ) VALUES ($1, $2, $3, $4, $5)
+            ) VALUES ($1, $2, $3, $4, $5, $6)
             RETURNING id
         `
 
         const values = [
             data.image,
             data.title,
+            data.chef_id,
             data.ingredients,
             data.preparation,
             data.information
@@ -34,9 +40,11 @@ module.exports = {
         })
     },
     find(id, callback) {
-        db.query(`SELECT recipes.*
+        db.query(`
+            SELECT recipes.*, chefs.name AS chef
             FROM recipes
-            WHERE id = $1`, [id], function(err, results) {
+            LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
+            WHERE recipes.id = $1`, [id], function(err, results) {
                 if (err) throw `Database error! ${err}`
 
                 callback(results.rows[0])
@@ -47,15 +55,17 @@ module.exports = {
             UPDATE recipes SET
                 image=($1),
                 title=($2),
-                ingredients=($3),
-                preparation=($4),
-                information=($5)
-            WHERE id = $6
+                chef_id=($3),
+                ingredients=($4),
+                preparation=($5),
+                information=($6)
+            WHERE id = $7
             `
 
         const values = [
             data.image,
             data.title,
+            data.chef_id,
             data.ingredients,
             data.preparation,
             data.information,
@@ -77,6 +87,13 @@ module.exports = {
             if(err) `Database error! ${err}`
 
             callback()
+        })
+    },
+    chefsSelectedOptions(callback) {
+        db.query(`SELECT * FROM chefs`, function(err, results){
+            if (err) throw `Database error! ${err}`
+
+            callback(results.rows)
         })
     }
 }

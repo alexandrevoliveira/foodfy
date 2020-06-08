@@ -129,7 +129,7 @@ header .container .links a {
 }
 
 .card-info .recipe-author {
-    font-size: 14px;
+    font-size: 16px;
     font-family: 'Roboto-Regular', sans-serif;
     color: var(--color-cinza);
     margin-bottom: 10px;
@@ -137,7 +137,7 @@ header .container .links a {
 
 .card-info .recipe-button a {
     text-decoration: none;
-    color: #6558C3 100%;
+    color: var(--color-button);
     font-family: 'Roboto-Bold', sans-serif;
 }
 
@@ -199,8 +199,9 @@ header .container .links a {
     cursor: pointer;   
 }
 
-.recipe-content ul {
-    padding-left: 20px;
+.recipe-content ul li {
+    margin-left: 20px;
+    list-style-type: initial;
 }
 
 .recipe-info {
@@ -231,7 +232,8 @@ header .container .links a {
 }
 
 .recipes-input .item input,
-.chefs-input .item input {
+.chefs-input .item input,
+.item select {
     width: 100%;
     height: 32px;
     border: 1px solid #DDDDDD;
@@ -239,6 +241,20 @@ header .container .links a {
     margin: 8px auto 16px;
     border-radius: 4px;
     padding: 0 8px;
+}
+
+.item select {
+    background-color: white;
+}
+
+.item textarea {
+    width: 100%;
+    height: 128px;
+    border: 1px solid #DDDDDD;
+    font-size: 16px;
+    margin: 8px auto 16px;
+    border-radius: 4px;
+    padding: 4px 8px;
 }
 
 .recipes-input .item button,

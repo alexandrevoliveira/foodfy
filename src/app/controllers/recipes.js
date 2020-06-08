@@ -17,8 +17,10 @@ module.exports = {
 
         })
     },
-    create(req, res) {        
-        return res.render("recipes/create")
+    create(req, res) {   
+        Recipe.chefsSelectedOptions(function(options){
+            return res.render("recipes/create", { chefsOptions:options })
+        })     
     },
     post(req, res) {
         // const keys = Object.keys(req.body)
@@ -36,8 +38,9 @@ module.exports = {
         const { id } = req.params
 
         Recipe.find(id, function(recipe) {
-            res.render("recipes/edit", { recipe })
-
+            Recipe.chefsSelectedOptions(function(options){
+                res.render("recipes/edit", { recipe, chefsOptions:options })
+            })
         })
     },
     put(req, res) {

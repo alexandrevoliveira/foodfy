@@ -8,7 +8,7 @@
     <div><a href="/admin/recipes/{{ recipe.id }}/edit">Editar Receita</a></div>
 </div>    
 
-<section class="recipes-menu">
+<section class="recipes-menu container">
 
     <div class="recipe-recipes" id="{{recipe.id}}">
         <div class="recipe-image">
@@ -17,7 +17,7 @@
         
         <div class="recipe-name">
             <h1>{{ recipe.title }}</h1>
-            <p>por {{ recipe.author }}</p>
+            <p>por {{ recipe.chef }}</p>
         </div>
 
         <section class="recipe-content">
@@ -32,9 +32,11 @@
 
             <h3>Modo de preparo <button class="visibility">MOSTRAR</button></h3>
             <div class="recipe-info hide">
-                {% for tip in recipe.preparation %}
-                    <p>- {{ tip }}; </p>
-                {% endfor %}
+                <ul>
+                    {% for tip in recipe.preparation %}
+                        <li>{{ tip }}; </li>
+                    {% endfor %}
+                </ul>
             </div>
 
             <h3>Informações adicionais <button class="visibility">ESCONDER</button></h3>

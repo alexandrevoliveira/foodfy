@@ -6,7 +6,8 @@ module.exports = {
             SELECT recipes.*, chefs.name AS chef
             FROM recipes
             LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
-            WHERE recipes.chef_id is NOT NULL`, function(err, results){
+            WHERE recipes.chef_id is NOT NULL
+            ORDER BY recipes.title ASC`, function(err, results){
             if (err) throw `Database error! ${err}`
 
             callback(results.rows)

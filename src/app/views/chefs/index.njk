@@ -1,0 +1,27 @@
+{% extends 'layout.njk' %}
+
+
+{% block content %}
+
+    <div class="menu-title-index">
+        <div>Gerenciar chefs</div>            
+        <div class="button-create"><a href="/admin/chefs/create">Criar Chef</a></div>
+    </div>
+
+    <section class="chef-cards container">
+        
+        {% for chef in chefs %}   
+            <div class="chef-card container">
+                <div class="chef-avatar"><img src="{{chef.avatar_url}}" alt=""></div>
+                <div class="card-info">
+                    <div class="chef-name">
+                        <h1>{{chef.name}}</h1>
+                    </div>
+                    <div class="chef-button"><a href="/admin/chefs/{{chef.id}}">Visualizar</a></div>
+                </div>
+            </div>
+        {% endfor %}
+            
+    </section>
+
+{% endblock %}

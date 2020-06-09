@@ -13,7 +13,9 @@ module.exports = {
         const { id } = req.params
 
         Chef.find(id, function(chef) {
-            res.render("chefs/show", { chef })
+            Chef.showAllRecipes(id, function(recipes){
+                return res.render("chefs/show", { chef, recipes })
+            })
 
         })
     },
@@ -36,6 +38,7 @@ module.exports = {
         const { id } = req.params
 
         Chef.find(id, function(chef) {
+            if (!chef) return res.send("chef not found!")
             return res.render("chefs/edit", { chef })
 
         })

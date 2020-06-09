@@ -17,7 +17,7 @@
         
         <div class="recipe-name">
             <h1>{{ recipe.title }}</h1>
-            <p>por {{ recipe.chef }}</p>
+            <p>por <a href="/admin/chefs/{{recipe.chef_id}}">{{ recipe.chef }}</a></p>
         </div>
 
         <section class="recipe-content">

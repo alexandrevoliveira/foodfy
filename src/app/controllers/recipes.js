@@ -13,6 +13,8 @@ module.exports = {
         const { id } = req.params
 
         Recipe.find(id, function(recipe) {
+                recipe.ingredients = recipe.ingredients.filter(ingredient => ingredient != "")
+                recipe.preparation = recipe.preparation.filter(eachprep => eachprep != "")
             res.render("recipes/show", { recipe })
 
         })

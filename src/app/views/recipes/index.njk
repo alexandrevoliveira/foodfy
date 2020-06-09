@@ -4,8 +4,23 @@
 {% block content %}
 
     <div class="menu-title-index">
-        <div>Gerenciar receitas</div>            
-        <div class="button-create"><a href="/admin/recipes/create">Criar Receita</a></div>
+        <div>Gerenciar receitas</div>
+        <div>
+            <div class="filter">
+                <form action="/admin/recipes" method="GET">
+                    <input 
+                        type="text" 
+                        name="filter" 
+                        value="{{filter}}"
+                        placeholder="Buscar uma receita"
+                    >
+                    <button class="button" type="submit">Buscar</button>
+                </form>
+            </div>
+            <div class="button-create">
+                <a href="/admin/recipes/create">Criar Receita</a>
+            </div>
+        </div>            
     </div>
 
     <section class="cards">

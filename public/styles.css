@@ -88,6 +88,12 @@ header .container .links a {
     color: var(--color-preto);
 }
 
+.menu-title-index div:last-child {
+    display: grid;
+    grid-template-columns: 1fr 170px;
+    align-items: center;
+}
+
 .menu-title-index div:last-child a,
 .menu-title div:last-child a,
 .menu-title button[type="submit"] {
@@ -139,6 +145,34 @@ header .container .links a {
     font-size: 14px;
     font-weight: bold;
     align-items: center;
+}
+
+
+/* === FILTER INDEX.NJK === */
+
+.filter form {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+}
+
+.filter form input {
+    border: 1px solid var(--color-footer);
+    padding: 8px 16px;
+    width: 100%;
+}
+
+.button,
+.butto-create {
+    text-decoration: none;
+    font-size: 16px;
+    background: var(--color-button) 100%;
+    color: #FFFFFF;
+    padding: 8px 20px;
+    border-radius: 4px;
+}
+
+.filter form .button {
+    justify-self: end;
 }
 
 /* === SHOW.NJK (RECIPES/:id) === */

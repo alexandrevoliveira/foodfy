@@ -3,9 +3,11 @@ const Recipe = require('../models/Recipe')
 
 module.exports = {
     index(req, res) {
+        
+        const { filter } = req.query
 
-        Recipe.all(function(recipes){
-            res.render("recipes/index", { recipes })
+        Recipe.all(filter, function(recipes){
+            res.render("recipes/index", { recipes, filter })
         })
     },
     show(req, res) {

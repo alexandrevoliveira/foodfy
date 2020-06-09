@@ -1,13 +1,28 @@
 const db = require('../../config/db')
 
 module.exports = {
-    all(callback) {
-        db.query(`
+    all(filter, callback) {
+
+        let query = `            
             SELECT recipes.*, chefs.name AS chef
             FROM recipes
             LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
             WHERE recipes.chef_id is NOT NULL
-            ORDER BY recipes.title ASC`, function(err, results){
+            `
+
+
+        if(filter) {
+            query = `
+                ${query}
+                AND recipes.title ILIKE '%${filter}%'
+            `
+        }
+            
+        query = `            
+            ${query}
+            ORDER BY recipes.title ASC`
+
+        db.query(query, function(err, results){
             if (err) throw `Database error! ${err}`
 
             callback(results.rows)

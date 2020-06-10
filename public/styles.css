@@ -379,8 +379,12 @@ header .container .links a {
     font-family: 'Roboto-Regular', sans-serif;
     font-weight: normal;
     color: var(--color-preto);
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     align-items: center;
+}
+
+.chef-card .card-info p {
+    color: var(--color-cinza);
 }
 
 .chef-card .card-info div:last-child a {

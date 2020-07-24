@@ -12,6 +12,7 @@
     --color-recipe: rgba(54, 51, 51, 0.8);
     --color-button: #6558C3;
     --color-delete: #DC4747;
+    --button-color: #ec470d;
 }
 
 * {
@@ -157,7 +158,13 @@ header .container .links a {
     background-color: var(--color-delete);
 }
 
-/* === CHEFS CREATE.NJK === */
+/* === FIELDS.NJK (RECIPES/CHEFS) === */
+
+
+.recipes-input .item,
+.chefs-input .item{
+    margin: 16px auto;
+}
 
 .recipes-input .item input,
 .chefs-input .item input,
@@ -166,7 +173,7 @@ header .container .links a {
     height: 32px;
     border: 1px solid #DDDDDD;
     font-size: 16px;
-    margin: 8px auto 16px;
+    margin: 8px auto;
     border-radius: 4px;
     padding: 0 8px;
 }
@@ -186,21 +193,20 @@ header .container .links a {
     padding: 4px 8px;
 }
 
-/* === FILTER INDEX.NJK === */
-
-.filter form {
-    display: grid;
-    grid-template-columns: 200px 1fr;
+.item button[class="add-ingredient"],
+.item button[class="add-preparation"] {
+    background-color: var(--color-cinza);
+    color: white;
+    padding: 4px 8px;
+    margin-bottom: 8px;
+    border-radius: 2px;
+    font-size: 12px;
+    transition: 400ms;
 }
 
-.filter form input {
-    border: 1px solid var(--color-footer);
-    padding: 8px 16px;
-    width: 100%;
-}
-
-.filter form .button {
-    justify-self: end;
+.item button[class="add-ingredient"]:hover,
+.item button[class="add-preparation"]:hover {
+    background-color: var(--color-button);
 }
 
 /* === CHEFS INDEX.NJK === */
@@ -273,7 +279,67 @@ header .container .links a {
     margin-bottom: 30px;
 }
 
-/* ==================================    RECIPES    ==================================== */
+/* ==================================    RECIPES    ================================== */
+
+/* === RECIPES BODYHEAD === */
+
+.bodyhead-recipes,
+.formhead-recipes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+
+.bodyhead-recipes div:first-child,
+.formhead-recipes div:first-child,
+.menu-title div:first-child {
+    width: 100%;
+    font-size: 22px;
+    font-family: 'Roboto-Bold', sans-serif;
+    font-weight: bold;
+    color: var(--color-preto);
+    letter-spacing: .7px;
+}
+
+.bodyhead-recipes div:last-child{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bodyhead-recipes div:last-child a.button{
+    min-width: 120px;
+}
+
+.bodyhead-recipes div:last-child,
+.formhead-recipes div:last-child,
+.formhead-recipes div:last-child .button,
+.formhead-recipes button[id="button-create"] {
+    justify-self: end;
+}
+
+/* === FILTER INDEX.NJK === */
+
+.filter form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    grid-gap: 10px;
+}
+
+.filter form input {
+    border: 1px solid var(--color-footer);
+    padding: 8px 16px;
+    width: 100%;
+}
+
+.filter button[class="button"] {
+    max-width: 120px;
+}
+
+/* === RECIPES CREATE.NJK ===  */
+
+
 
 /* === RECIPES INDEX.NJK === */
 

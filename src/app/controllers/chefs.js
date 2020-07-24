@@ -22,16 +22,19 @@ module.exports = {
     create(req, res) {        
         return res.render("chefs/create")
     },
-    post(req, res) {
-        // const keys = Object.keys(req.body)
+    async post(req, res) {
+        
+        const keys = Object.keys(req.body)
     
-        // for(let key of keys) {
-        //     if(req.body[key] == "") return res.send("Please fill all fields")
-        // }
+        for(let key of keys) {
+            if(req.body[key] == "") return res.send("Please fill all fields")
+        }
 
-        Chef.create(req.body, function(chef) {
-            return res.redirect(`/admin/chefs/${chef.id}`)
-        })
+        const results = await Chef.create(req.body)
+        const chef = results.rows[0]
+
+        return res.redirect(`/admin/chefs/${chef.id}`)
+
     },
     edit(req, res) {
 

@@ -1,24 +1,22 @@
 {% extends "layout.njk" %}
 
 
-
 {% block content %}
-    <form class="chefs-input" action="/admin/chefs" method="POST">
 
-        {% block formhead %}
+<section class="container">
 
-            <div class="menu-title">
-                <div>Criando chef</div>
-                <button type="submit">Criar Chef</button>
-            </div>    
 
-        {% endblock %}
+    <div class="formhead">
+        <div>Criando chef</div>
+        <div><button form="form-create" id="button-create" class="button" type="submit">Salvar Chef</button></div>
+    </div>
+
+    <form id="form-create" class="chefs-input" action="/admin/chefs" method="POST">
 
         {% include 'chefs/fields.njk' %}
                
     </form>
 
-    <script src="/scripts.js"></script>
-
+</section>
 
 {% endblock %}

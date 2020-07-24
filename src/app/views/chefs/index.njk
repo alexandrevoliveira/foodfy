@@ -3,30 +3,34 @@
 
 {% block content %}
 
-    <div class="menu-title-index">
+<section class="container">
+
+    <div class="bodyhead">
         <div>Gerenciar chefs</div>            
-        <div class="button-create"><a href="/admin/chefs/create">Criar Chef</a></div>
+        <div><a class="button" href="/admin/chefs/create">Criar Chef</a></div>
     </div>
 
-    <section class="chef-cards container">
+    <section class="chef-cards">
         
         {% for chef in chefs %}   
-            <div class="chef-card container">
+            <div class="chef-card">
                 <div class="chef-avatar"><img src="{{chef.avatar_url}}" alt=""></div>
                 <div class="card-info">
                     <div class="chef-name">
-                        <h1>{{chef.name}}</h1>
+                        <h3>{{chef.name}}</h3>
                     </div>
                     {% if chef.recipes_amount > 1%}
                         <p>{{chef.recipes_amount}} receitas</p>
                     {% else %}
                         <p>{{chef.recipes_amount}} receita</p>
                     {% endif %}
-                    <div class="chef-button"><a href="/admin/chefs/{{chef.id}}">Visualizar</a></div>
+                    <div><a class="button" href="/admin/chefs/{{chef.id}}">Visualizar</a></div>
                 </div>
             </div>
         {% endfor %}
             
     </section>
+
+</section>
 
 {% endblock %}

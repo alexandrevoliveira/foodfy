@@ -2,26 +2,30 @@
 
 {% block content %}
 
-    <div class="menu-title">
-        <div>Editando chef</div>            
-        <div class="buttons-edit"></div>
+<section class="container">
+
+    <div class="formhead">
+        <div>Editando chef</div>
+        <div class="buttons-edit">
+            <button form="form-delete" id="button-delete" class="button" type="submit">Deletar</button>
+            <button form="form-edit" id="button-edit" class="button" type="submit">Salvar chef</button>
+        </div>
     </div>
 
     <div class="forms-edit">
-        <form id="form-delete" method="POST" action="/admin/chefs?_method=DELETE">
-            <button type="submit">Deletar</button>
-            <input type="hidden" name="id" value="{{chef.id}}">
-        </form>
 
-        <form class="chefs-input" method="POST" action="/admin/chefs?_method=PUT">
-            <button type="submit">Salvar chef</button>
+        <form id="form-edit" class="chefs-input" method="POST" action="/admin/chefs?_method=PUT">
             <input type="hidden" name="id" value="{{chef.id}}">
             {% include 'chefs/fields.njk' %}
-
         </form>
+
+        <form id="form-delete" method="POST" action="/admin/chefs?_method=DELETE">
+            <input type="hidden" name="id" value="{{chef.id}}">
+            {% include 'confirm.njk' %}
+        </form>
+
     </div>
 
-    {% include 'confirm.njk' %}
+</section>
 
-    <script src="/scripts.js"></script>
 {% endblock %}

@@ -11,6 +11,7 @@
     --color-footer: #eeeeee;
     --color-recipe: rgba(54, 51, 51, 0.8);
     --color-button: #6558C3;
+    --color-delete: #DC4747;
 }
 
 * {
@@ -23,11 +24,64 @@
     list-style-type: none;
 }
 
-body {
-    background-color: white;
-    font-family: "Roboto", sans-serif;
-    color: var(--color-preto);
+html, body {
+    min-height: 100vh;
 }
+
+body {
+    font-family: "Roboto", sans-serif;
+    
+    background-color: white;
+    color: var(--color-preto);
+    
+    /* colocando o footer fixo no fundo das páginas */
+    display: flex;
+    flex-direction: column; 
+}
+
+.container {
+    width: 90%;
+    max-width: 940px;
+    margin: 0 auto;
+}
+
+.button {
+    background-color: var(--color-button);
+    color: white;
+
+    display: block;
+    margin: 8px 0;
+    padding: 12px 16px;
+    
+    width: 100%;
+    max-width: 160px;
+    border-radius: 4px;
+    
+    /* para colocar o botão para baixo */
+    align-self: end;
+    
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: none;
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: all 0.2s;
+}
+
+footer{
+    /* footer fixado através do margin-top: auto */
+    margin-top: auto; 
+
+    background-color: var(--color-preto);
+    color: white;
+    text-align: center;
+
+    font-size: 12px;
+    padding: 16px 32px;
+}
+
 
 /* === HEADER === */
 
@@ -42,22 +96,6 @@ header .container {
     align-items: center;
 }
 
-.container {
-    width: 90%;
-    max-width: 940px;
-    margin: 0 auto;
-}
-
-/* === LOGO === */
-
-.logo img {
-    width: 90px;
-    height: 27px;
-    margin-right: 50px;
-}
-
-/* === HEADER .LINKS === */
-
 header .container .links {
     display: flex;
     grid-gap: 30px;
@@ -69,43 +107,175 @@ header .container .links a {
     font-weight: bold;
     text-transform: uppercase;
 }
-/* === INDEX.NJK === */
 
-
-.menu-title-index {    
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    max-width: 940px;
-    margin: 0 auto 40px;
-    position: relative;
+.logo img {
+    width: 90px;
+    height: 27px;
+    margin-right: 50px;
 }
 
-.menu-title-index div:first-child,
-.menu-title div:first-child {
-    font-size: 24px;
-    font-family: 'Roboto-Bold', sans-serif;
-    font-weight: bold;
-    color: var(--color-preto);
-}
+/* === CHEFS BODYHEAD === */
 
-.menu-title-index div:last-child {
+.bodyhead,
+.formhead {
     display: grid;
-    grid-template-columns: 1fr 170px;
+    grid-template-columns: repeat(2, 1fr);
     align-items: center;
 }
 
-.menu-title-index div:last-child a,
-.menu-title div:last-child a,
-.menu-title button[type="submit"] {
-    text-decoration: none;
-    font-size: 16px;
-    position: absolute;
-    right: 0;
-    background: var(--color-button) 100%;
-    color: #FFFFFF;
-    padding: 8px 20px;
-    border-radius: 4px;
+.bodyhead div:first-child,
+.formhead div:first-child,
+.menu-title div:first-child {
+    font-size: 22px;
+    font-family: 'Roboto-Bold', sans-serif;
+    font-weight: bold;
+    color: var(--color-preto);
+    letter-spacing: .7px;
 }
+
+.bodyhead div:last-child,
+.formhead div:last-child,
+.formhead button[id="button-create"] {
+    justify-self: end;
+}
+
+/* === CHEFS BODYHEAD BUTTONS-EDIT === */
+
+.formhead .buttons-edit {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    grid-gap: 10px;
+}
+
+.formhead .buttons-edit #button-delete {
+    background-color: var(--color-cinza);
+    transition: 400ms;
+}
+
+.formhead .buttons-edit #button-delete:hover {
+    background-color: var(--color-delete);
+}
+
+/* === CHEFS CREATE.NJK === */
+
+.recipes-input .item input,
+.chefs-input .item input,
+.item select {
+    width: 100%;
+    height: 32px;
+    border: 1px solid #DDDDDD;
+    font-size: 16px;
+    margin: 8px auto 16px;
+    border-radius: 4px;
+    padding: 0 8px;
+}
+
+.item select {
+    background-color: white;
+}
+
+.item textarea {
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    height: 128px;
+    border: 1px solid #DDDDDD;
+    font-size: 16px;
+    margin: 8px auto 16px;
+    border-radius: 4px;
+    padding: 4px 8px;
+}
+
+/* === FILTER INDEX.NJK === */
+
+.filter form {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+}
+
+.filter form input {
+    border: 1px solid var(--color-footer);
+    padding: 8px 16px;
+    width: 100%;
+}
+
+.filter form .button {
+    justify-self: end;
+}
+
+/* === CHEFS INDEX.NJK === */
+
+.chef-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+    margin: 30px auto;
+}
+
+.chef-card {
+    width: 230px;
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    grid-gap: 20px;
+    align-items: center;
+}
+
+.chef-card .chef-avatar img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 1px solid white;
+    box-shadow: 2px 2px 2px -1px rgba(60, 60, 60, 0.7);   
+}
+
+.chef-card .card-info div:first-child h3{
+    font-size: 14px;
+    font-family: 'Roboto-Regular', sans-serif;
+    font-weight: bold;
+    color: var(--color-rocket);
+    margin-bottom: 6px;
+    align-items: center;
+    letter-spacing: 0px;
+}
+
+.chef-card .card-info p {
+    color: var(--color-cinza);
+}
+
+/* === CHEFS SHOW.NJK ===*/
+
+.container .chef-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 30px auto;
+}
+
+.chef-image img {
+    height: 200px; 
+    width: 200px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+}
+
+.chef-name h1 {
+    color: var(--color-preto);
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.container div h3 {
+    color: var(--color-preto);
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+
+/* ==================================    RECIPES    ==================================== */
+
+/* === RECIPES INDEX.NJK === */
 
 .cards {
     width: 960px;
@@ -145,34 +315,6 @@ header .container .links a {
     font-size: 14px;
     font-weight: bold;
     align-items: center;
-}
-
-
-/* === FILTER INDEX.NJK === */
-
-.filter form {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-}
-
-.filter form input {
-    border: 1px solid var(--color-footer);
-    padding: 8px 16px;
-    width: 100%;
-}
-
-.button,
-.butto-create {
-    text-decoration: none;
-    font-size: 16px;
-    background: var(--color-button) 100%;
-    color: #FFFFFF;
-    padding: 8px 20px;
-    border-radius: 4px;
-}
-
-.filter form .button {
-    justify-self: end;
 }
 
 /* === SHOW.NJK (RECIPES/:id) === */
@@ -262,53 +404,7 @@ header .container .links a {
     height: 0;
 }
 
-/* === CREATE.NJK === */
-
-.recipes-input .item,
-.chefs-input .item {
-    width: 940px;
-    margin: 0 auto 16px;
-}
-
-.recipes-input .item input,
-.chefs-input .item input,
-.item select {
-    width: 100%;
-    height: 32px;
-    border: 1px solid #DDDDDD;
-    font-size: 16px;
-    margin: 8px auto 16px;
-    border-radius: 4px;
-    padding: 0 8px;
-}
-
-.item select {
-    background-color: white;
-}
-
-.item textarea {
-    font-family: 'Roboto', sans-serif;
-    width: 100%;
-    height: 128px;
-    border: 1px solid #DDDDDD;
-    font-size: 16px;
-    margin: 8px auto 16px;
-    border-radius: 4px;
-    padding: 4px 8px;
-}
-
-.recipes-input .item button,
-.chefs-input .item button {
-    background: var(--color-button) 100%;
-    color: #FFFFFF;
-    padding: 2px 6px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-bottom: 16px;
-}
-
-
-/* === FORM-DELETE === */
+/* === RECIPES FORM-DELETE === */
 
 .forms-edit {
     max-width: 940px;
@@ -347,81 +443,4 @@ header .container .links a {
     right: 0;
     top: -70px;
     cursor: pointer;
-}
-
-
-/* === CHEFS INDEX.NJK ===*/
-
-.chef-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 30px;
-}
-
-.chef-card {
-    width: 230px;
-    display: grid;
-    grid-template-columns: 64px 1fr;
-    grid-gap: 20px;
-    align-items: center;
-}
-
-.chef-card .chef-avatar img {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    border: 1px solid white;
-    box-shadow: 2px 2px 2px -1px;   
-}
-
-.chef-card .card-info div:first-child h1{
-    font-size: 16px;
-    font-family: 'Roboto-Regular', sans-serif;
-    font-weight: normal;
-    color: var(--color-preto);
-    margin-bottom: 4px;
-    align-items: center;
-}
-
-.chef-card .card-info p {
-    color: var(--color-cinza);
-}
-
-.chef-card .card-info div:last-child a {
-    color: var(--color-button);
-    font-size: 14px;
-    font-weight: bold;
-    align-items: center;
-}
-
-/* === CHEFS SHOW.NJK ===*/
-
-.container .chef-info {
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin: 0 auto 50px;
-}
-
-.chef-image img {
-    height: 200px; 
-    width: 200px;
-    border-radius: 50%;
-    margin-bottom: 30px;
-}
-
-.chef-name h1 {
-    color: var(--color-preto);
-    font-size: 36px;
-    font-weight: bold;
-}
-
-.container div h3 {
-    color: var(--color-preto);
-    font-size: 24px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    margin-bottom: 30px;
 }

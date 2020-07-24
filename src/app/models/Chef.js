@@ -26,11 +26,7 @@ module.exports = {
             data.name,
             data.avatar_url
         ]
-        db.query(query, values, function(err, results) {
-            if (err) throw `Database error! ${err}`
-
-            callback(results.rows[0])
-        })
+        return db.query(query, values)
     },
     find(id, callback) {
         db.query(`

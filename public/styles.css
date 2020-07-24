@@ -235,7 +235,7 @@ header .container .links a {
 }
 
 .chef-card .card-info div:first-child h3{
-    font-size: 14px;
+    font-size: 12px;
     font-family: 'Roboto-Regular', sans-serif;
     font-weight: bold;
     color: var(--color-rocket);
@@ -247,6 +247,7 @@ header .container .links a {
 .chef-card .card-info p {
     color: var(--color-cinza);
 }
+
 
 /* === CHEFS SHOW.NJK ===*/
 

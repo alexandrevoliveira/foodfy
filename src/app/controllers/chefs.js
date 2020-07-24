@@ -2,22 +2,24 @@ const Chef = require('../models/Chef')
 
 
 module.exports = {
-    index(req, res) {
+    async index(req, res) {
 
-        Chef.all(function(chefs){
-            res.render("chefs/index", { chefs })
-        })
+        const results = await Chef.all()
+        const chefs = results.rows
+
+        return res.render("chefs/index", { chefs })
+        
     },
-    show(req, res) {
+    async show(req, res) {
 
-        const { id } = req.params
+        let results = await Chef.find(req.params.id)
+        const chef = results.rows[0]
 
-        Chef.find(id, function(chef) {
-            Chef.showAllRecipes(id, function(recipes){
-                return res.render("chefs/show", { chef, recipes })
-            })
+        results = await Chef.showAllRecipes(req.params.id)
+        const recipes = results.rows
 
-        })
+        return res.render("chefs/show", { chef, recipes })
+        
     },
     create(req, res) {        
         return res.render("chefs/create")
@@ -36,25 +38,23 @@ module.exports = {
         return res.redirect(`/admin/chefs/${chef.id}`)
 
     },
-    edit(req, res) {
+    async edit(req, res) {
 
-        const { id } = req.params
+        const results = await Chef.find(req.params.id)
+        const chef = results.rows[0]
+        
+        if (!chef) return res.send("chef not found!")
 
-        Chef.find(id, function(chef) {
-            if (!chef) return res.send("chef not found!")
-            return res.render("chefs/edit", { chef })
-
-        })
+        return res.render("chefs/edit", { chef })
+        
     },
-    put(req, res) {
+    async put(req, res) {
 
-        Chef.update(req.body, function(){
-            return res.redirect(`/admin/chefs/${req.body.id}`)
-        })
+        await Chef.update(req.body)
+        return res.redirect(`/admin/chefs/${req.body.id}`)
     },
-    delete(req, res) {
-        Chef.delete(req.body.id, function(){
-            return res.redirect(`/admin/chefs/${req.body.id}`)
-        })
+    async delete(req, res) {
+        await Chef.delete(req.body.id)
+        return res.redirect(`/admin/chefs/${req.body.id}`)
     }
 }

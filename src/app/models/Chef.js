@@ -1,19 +1,15 @@
 const db = require('../../config/db')
 
 module.exports = {
-    all(callback) {
-        db.query(`
+    all() {
+        return db.query(`
             SELECT chefs.*, count(recipes) AS recipes_amount
             FROM chefs
             LEFT JOIN recipes ON (chefs.id = recipes.chef_id)
             GROUP BY chefs.id
-            ORDER BY name`, function(err, results){
-            if (err) throw `Database error! ${err}`
-
-            callback(results.rows)
-        })
+            ORDER BY name`)
     },
-    create(data, callback) {
+    create(data) {
         const query = `
             INSERT INTO chefs (
                 name,
@@ -26,21 +22,18 @@ module.exports = {
             data.name,
             data.avatar_url
         ]
+
         return db.query(query, values)
     },
-    find(id, callback) {
-        db.query(`
+    find(id) {
+        return db.query(`
             SELECT chefs.*, count(recipes) AS recipes_amount
             FROM chefs
             LEFT JOIN recipes ON (chefs.id = recipes.chef_id)
             WHERE chefs.id = $1
-            GROUP BY chefs.id`, [id], function(err, results) {
-                if (err) throw `Database error! ${err}`
-
-                callback(results.rows[0])
-            })
+            GROUP BY chefs.id`, [id])
     },
-    update(data, callback) {
+    update(data) {
         const query = `
             UPDATE chefs SET
                 name=($1),
@@ -54,29 +47,17 @@ module.exports = {
             data.id
         ]
 
-        db.query(query, values, function(err, results) {
-            if(err) `Database error! ${err}`
-
-            callback()
-        })        
+        return db.query(query, values)        
     },
     delete(id, callback) {
-        db.query(`
+        return db.query(`
             DELETE FROM chefs 
-            WHERE id = $1`, [id], function(err, results) {
-            if(err) `Database error! ${err}`
-
-            callback()
-        })
+            WHERE id = $1`, [id])
     },
     showAllRecipes(id, callback) {
-        db.query(`
+        return db.query(`
             SELECT recipes.*
             FROM recipes
-            WHERE recipes.chef_id = $1`, [id], function(err, results) {
-                if (err) throw `Database error! ${err}`
-
-                callback(results.rows)
-            })
+            WHERE recipes.chef_id = $1`, [id])
     }
 }

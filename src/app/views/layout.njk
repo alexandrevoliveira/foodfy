@@ -11,7 +11,9 @@
         
         {% include 'parts/header.njk' %}
 
-        {% block content %}{% endblock %}
+        <section class="container">
+            {% block content %}{% endblock %}
+        </section>
 
         {% include 'parts/footer.njk' %}
 

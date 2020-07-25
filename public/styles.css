@@ -435,7 +435,7 @@ form .item{
 form .item > div:nth-child(1) {
     font-size: 14px;
     font-weight: bold;
-    color: #777;
+    color: #444;
     text-transform: uppercase;
 
     margin-bottom: 8px;
@@ -505,13 +505,12 @@ form .item #photos-upload{
     width: 110px;
     height: 120px;
 
-    margin: 8px 0;
     border: 1px solid var(--color-border);
     border-radius: 2px;
 
 }
 
-.item #photos-upload input {
+form .item #photos-upload input {
     position: absolute;
     top: 0;
     right: 0;
@@ -525,7 +524,7 @@ form .item #photos-upload{
     opacity: 0;
 }
 
-.item #photos-upload i {
+form .item #photos-upload i {
     width: 100%;
     height: 100%;
 
@@ -535,6 +534,54 @@ form .item #photos-upload{
 
     font-size: 300%;
     color: #777;
+}
+
+form .item #photos-preview {
+    display: flex;
+    gap: 16px;
+    width: 100%; 
+
+}
+
+form .item #photos-preview .photo {
+    position: relative;
+}
+
+form .item #photos-preview .photo img {
+    width: 110px;
+    height: 120px;
+
+    border: 1px solid var(--color-border);
+    border-radius: 2px;
+
+    object-fit: cover;
+}
+
+form .item #photos-preview .photo i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    font-size: 300%;
+    cursor: pointer;
+
+    color: var(--color-delete);
+    background-color:  rgba(255, 255, 255, 0.7);
+
+    opacity: 0;
+
+    transition: opacity 400ms;
+}
+
+form .item #photos-preview .photo:hover i {
+    opacity: 1;
 }
 
 /* === RECIPES FORM-DELETE === */

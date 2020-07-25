@@ -49,12 +49,12 @@ module.exports = {
 
         return db.query(query, values)        
     },
-    delete(id, callback) {
+    delete(id) {
         return db.query(`
             DELETE FROM chefs 
             WHERE id = $1`, [id])
     },
-    showAllRecipes(id, callback) {
+    showAllRecipes(id) {
         return db.query(`
             SELECT recipes.*
             FROM recipes

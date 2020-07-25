@@ -14,7 +14,9 @@
 
     <form id="form-edit" class="chefs-input" method="POST" action="/admin/chefs?_method=PUT">
         <input type="hidden" name="id" value="{{chef.id}}">
-        {% include 'chefs/fields.njk' %}
+        <div class="fields">
+            {% include 'chefs/fields.njk' %}
+        </div>
     </form>
 
     <form id="form-delete" method="POST" action="/admin/chefs?_method=DELETE">

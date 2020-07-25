@@ -13,6 +13,7 @@
     --color-button: #6558C3;
     --color-delete: #DC4747;
     --button-color: #ec470d;
+    --color-border: #DDDDDD;
 }
 
 * {
@@ -156,57 +157,6 @@ header .container .links a {
 
 .formhead .buttons-edit #button-delete:hover {
     background-color: var(--color-delete);
-}
-
-/* === FIELDS.NJK (RECIPES/CHEFS) === */
-
-
-.recipes-input .item,
-.chefs-input .item{
-    margin: 16px auto;
-}
-
-.recipes-input .item input,
-.chefs-input .item input,
-.item select {
-    width: 100%;
-    height: 32px;
-    border: 1px solid #DDDDDD;
-    font-size: 16px;
-    margin: 8px auto;
-    border-radius: 4px;
-    padding: 0 8px;
-}
-
-.item select {
-    background-color: white;
-}
-
-.item textarea {
-    font-family: 'Roboto', sans-serif;
-    width: 100%;
-    height: 128px;
-    border: 1px solid #DDDDDD;
-    font-size: 16px;
-    margin: 8px auto 16px;
-    border-radius: 4px;
-    padding: 4px 8px;
-}
-
-.item button[class="add-ingredient"],
-.item button[class="add-preparation"] {
-    background-color: var(--color-cinza);
-    color: white;
-    padding: 4px 8px;
-    margin-bottom: 8px;
-    border-radius: 2px;
-    font-size: 12px;
-    transition: 400ms;
-}
-
-.item button[class="add-ingredient"]:hover,
-.item button[class="add-preparation"]:hover {
-    background-color: var(--color-button);
 }
 
 /* === CHEFS INDEX.NJK === */
@@ -469,6 +419,122 @@ header .container .links a {
 .recipe-info.hide {
     visibility: hidden;
     height: 0;
+}
+
+/* === FIELDS.NJK (RECIPES/CHEFS) === */
+
+form .fields {
+    margin-bottom: 64px;
+}
+
+form .item,
+form .item{
+    margin: 16px auto;
+}
+
+form .item > div:nth-child(1) {
+    font-size: 14px;
+    font-weight: bold;
+    color: #777;
+    text-transform: uppercase;
+
+    margin-bottom: 8px;
+}
+
+form .item input[type="text"],
+form .item input[type="number"],
+form .item textarea,
+form .item select {
+    width: 100%;
+
+    padding: 8px 16px;
+    margin: 4px auto;
+
+    box-shadow: 2px 2px 2px -2px rgba(63, 63, 63, .7);
+
+    border: 1px solid #efefef;
+    border-radius: 4px;
+
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+form .item select {
+    /* permitir estilizacao no select */
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+
+    /* trazer de volta o icone lateral */
+    background-color: #fff;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+      linear-gradient(to top, #ffffff 0%,#e5e5e5 100%);
+    background-repeat: no-repeat;
+    background-position: right .7em top 50%, 0 0;
+    background-size: .65em auto, 100%;
+}
+
+form .item textarea {
+    min-height: 150px;
+}
+
+form .item button[class="add-ingredient"],
+form .item button[class="add-preparation"] {
+    background-color: var(--color-cinza);
+    color: white;
+    padding: 4px 8px;
+    margin: 2px auto;
+    border-radius: 2px;
+    font-size: 12px;
+    transition: 400ms;
+}
+
+form .item button[class="add-ingredient"]:hover,
+form .item button[class="add-preparation"]:hover {
+    background-color: var(--color-button);
+}
+
+/* === PHOTOS UPLOAD === */
+
+form .item #photos-upload{
+    position: relative;
+
+    display: block;
+    overflow: hidden;
+
+    width: 110px;
+    height: 120px;
+
+    margin: 8px 0;
+    border: 1px solid var(--color-border);
+    border-radius: 2px;
+
+}
+
+.item #photos-upload input {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    display: block;
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+}
+
+.item #photos-upload i {
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 300%;
+    color: #777;
 }
 
 /* === RECIPES FORM-DELETE === */

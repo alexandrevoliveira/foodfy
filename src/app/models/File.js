@@ -17,5 +17,11 @@ module.exports = {
         ]
 
         return db.query(query, values)
+    },
+    findFiles(recipe_id) {
+        return db.query(`SELECT * FROM recipe_files WHERE recipe_id = $1`, [recipe_id])
+    },
+    takeFiles(file_id) {
+        return db.query(`SELECT * FROM files WHERE id = $1`, [file_id])
     }
 }

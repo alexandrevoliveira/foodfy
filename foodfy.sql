@@ -1,7 +1,6 @@
 CREATE TABLE "recipes" (
     "id" SERIAL PRIMARY KEY,
     "chef_id" int,
-    "image_upload" text[ ],
     "title" text,
     "ingredients" text[ ],
     "preparation" text[ ],

@@ -81,14 +81,53 @@ module.exports = {
             ...file,
             src: `${req.protocol}://${req.headers.host}${file.path.replace("public", "")}`
         }))
-        console.log(files)
 
         return res.render("recipes/edit", { recipe, chefsOptions, files })
     },
     async put(req, res) {
 
-        await Recipe.update(req.body)
+        const keys = Object.keys(req.body)
 
+        for(let key of keys) {
+            if(req.body[key] == "" && key != "removed_files") {
+                return res.send("Please, fill all fields")
+            }
+        }
+                
+        // create new images
+        if(req.files.length != 0) {
+            //criamos aqui um array de promessas de criação de arquivos na tabela files
+            const newfilesPromise = req.files.map(file => File.create({...file}))
+            const newfilesResults = await Promise.all(newfilesPromise)
+            
+            
+            const recipeFilesPromise = newfilesResults.map(file => {
+                // aqui obtemos o id de cada arquivo
+                const fileId = file.rows[0].id
+                // utilizamos o id de cada arquivo para criarmos um relacionamento
+                // entre a tabela files e recipes usando a tabela recipe_files
+                Recipe_Files.create(req.body.id, fileId)
+            })
+            // aqui cumprimos as promessas finalizando a junção entre as tabelas
+            await Promise.all(recipeFilesPromise)
+        }
+        
+        // deleting oldPhotos
+        if (req.body.removed_files) {
+            const removedFiles = req.body.removed_files.split(",")
+            const lastIndex = removedFiles.length - 1
+            removedFiles.splice(lastIndex, 1)
+            
+            const removedFilesPromise = removedFiles.map(id => {
+                File.delete(id)
+                Recipe_Files.file_deleted(id)
+            })
+            
+            await Promise.all(removedFilesPromise)
+        }
+
+        await Recipe.update(req.body)
+        
         return res.redirect(`/admin/recipes/${req.body.id}`)
     },
     async delete(req, res) {

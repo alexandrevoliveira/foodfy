@@ -231,7 +231,7 @@ header .container .links a {
     font-size: 24px;
     font-weight: bold;
     letter-spacing: 1px;
-    margin-bottom: 30px;
+    margin-bottom: 8px;
 }
 
 /* ==================================    RECIPES    ================================== */
@@ -333,7 +333,7 @@ header .container .links a {
 
 .recipe-name {
     text-align: center;
-    margin-top: 24px;
+    margin-top: 16px;
 }
 
 .recipe-name h1 {
@@ -354,34 +354,25 @@ header .container .links a {
 }
 
 .recipe-content h3 {
-    padding-top: 30px;
-}
-
-.recipe-content h3 {
-    font-size: 20px;
+    padding-top: 16px;
+    font-size: 16px;
 }
 
 .recipe-content button {
     font-size: 8px;
-    margin-left: 8px;
+    letter-spacing: .7px;
+    margin-left: 2px;
     background: var(--color-button) 100%;
     color: #FFFFFF;
     padding: 2px 4px;
     border-radius: 4px;
-    cursor: pointer;   
+    cursor: pointer;
 }
 
-.recipe-content ul li {
-    margin-left: 20px;
-    list-style-type: initial;
-}
-
-.recipe-info {
-    margin-top: 15px;
-}
-.recipe-info li,
+.recipe-info ul li,
 .recipe-info p {
-    padding-bottom: 8px;
+    color: var(--color-cinza);
+    padding-bottom: 2px;
 }
 
 /* === HIDE BUTTON === */
@@ -597,4 +588,23 @@ form .item #photos-preview .photo:hover i {
     right: 0;
     top: -70px;
     cursor: pointer;
+}
+
+/* === SHOW.NJK RECIPES === */
+
+/* GALLERY IMAGES */
+
+.gallery-highlight {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.gallery-highlight img {
+    object-fit: cover;
+    width: 100%;
+    height: 280px;
+
+    border: 1px solid var(--color-border);
+    border-radius: 2px;
+    box-shadow: 2px 2px 2px -1px rgba(60, 60, 60, 0.7);
 }

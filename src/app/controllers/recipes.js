@@ -15,13 +15,28 @@ module.exports = {
     },
     async show(req, res) {
 
-        const results = await Recipe.find(req.params.id)
+        // get recipe
+        let results = await Recipe.find(req.params.id)
         const recipe = results.rows[0]
 
         recipe.ingredients = recipe.ingredients.filter(ingredient => ingredient != "")
         recipe.preparation = recipe.preparation.filter(eachprep => eachprep != "")
 
-        return res.render("recipes/show", { recipe })
+        // get images
+        results = await File.findFiles(recipe.id)
+        const recipe_files = results.rows
+
+        const filesPromise = recipe_files.map(file => File.takeFiles(file.file_id))
+        const filesResults = await Promise.all(filesPromise)
+
+        let files = filesResults.map(file => file.rows[0])
+
+        files = files.map(file => ({
+            ...file,
+            src: `${req.protocol}://${req.headers.host}${file.path.replace("public", "")}`
+        }))
+
+        return res.render("recipes/show", { recipe, files })
     },
     async create(req, res) {   
         const results = await Recipe.chefsSelectedOptions()

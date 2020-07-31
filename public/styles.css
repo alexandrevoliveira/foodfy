@@ -90,7 +90,7 @@ footer{
 header{
     background-color: var(--color-preto);
     padding: 27px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 header .container {
@@ -123,6 +123,7 @@ header .container .links a {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
+    margin-bottom: 32px;
 }
 
 .bodyhead div:first-child,
@@ -143,19 +144,22 @@ header .container .links a {
 
 /* === CHEFS FORMHEAD BUTTONS-EDIT === */
 
-.formhead .buttons-edit {
+.formhead .buttons-edit,
+.formhead-recipes .buttons-edit {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
     grid-gap: 10px;
 }
 
-.formhead .buttons-edit #button-delete {
+.formhead .buttons-edit #button-delete,
+.formhead-recipes .buttons-edit #button-delete {
     background-color: var(--color-cinza);
     transition: 400ms;
 }
 
-.formhead .buttons-edit #button-delete:hover {
+.formhead .buttons-edit #button-delete:hover,
+.formhead-recipes .buttons-edit #button-delete:hover {
     background-color: var(--color-delete);
 }
 
@@ -239,6 +243,7 @@ header .container .links a {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
+    margin-bottom: 32px;
 }
 
 .bodyhead-recipes div:first-child,
@@ -252,10 +257,12 @@ header .container .links a {
     letter-spacing: .7px;
 }
 
-.bodyhead-recipes div:last-child{
-    display: flex;
-    justify-content: space-between;
+.bodyhead-filter{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
     align-items: center;
+    justify-content: center;
 }
 
 .bodyhead-recipes div:last-child a.button{
@@ -271,26 +278,14 @@ header .container .links a {
 
 /* === FILTER INDEX.NJK === */
 
-.filter form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    grid-gap: 10px;
-}
-
 .filter form input {
     border: 1px solid var(--color-footer);
     padding: 8px 16px;
-    width: 100%;
 }
 
 .filter button[class="button"] {
     max-width: 120px;
 }
-
-/* === RECIPES CREATE.NJK ===  */
-
-
 
 /* === RECIPES INDEX.NJK === */
 
@@ -336,27 +331,6 @@ header .container .links a {
 
 /* === SHOW.NJK (RECIPES/:id) === */
 
-.menu-title {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    max-width: 940px;
-    margin: 0px auto 50px;
-    position: relative;
-}
-
-.recipes-menu {
-    width: 940px;
-    margin: 0 auto;
-    display: grid;
-}
-
-.recipe-recipes img{
-    width: 940px;
-    margin: 0 auto;
-    height: 280px;
-    border-radius: 15px;
-}
-
 .recipe-name {
     text-align: center;
     margin-top: 24px;
@@ -388,11 +362,11 @@ header .container .links a {
 }
 
 .recipe-content button {
-    font-size: 10px;
+    font-size: 8px;
     margin-left: 8px;
     background: var(--color-button) 100%;
     color: #FFFFFF;
-    padding: 1px 4px;
+    padding: 2px 4px;
     border-radius: 4px;
     cursor: pointer;   
 }
@@ -427,7 +401,6 @@ form .fields {
     margin-bottom: 64px;
 }
 
-form .item,
 form .item{
     margin: 16px auto;
 }

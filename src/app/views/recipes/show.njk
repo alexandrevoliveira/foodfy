@@ -1,55 +1,49 @@
 {% extends "layout.njk" %}
 
-
 {% block content %}
 
-<div class="menu-title">
+<div class="bodyhead-recipes">
     <div>Receita: {{recipe.title}}</div>
-    <div><a href="/admin/recipes/{{ recipe.id }}/edit">Editar Receita</a></div>
+    <div><a class="button" href="/admin/recipes/{{ recipe.id }}/edit">Editar Receita</a></div>
 </div>    
 
-<section class="recipes-menu container">
-
-    <div class="recipe-recipes" id="{{recipe.id}}">
-        <div class="recipe-image">
-            <img src="{{recipe.image}}" alt="{{recipe.title}}">
+<div class="recipe" id="{{recipe.id}}">
+    <div class="recipe-image">
+        <div class="gallery-highlight">
+            <img src="{{files[0].src}}" alt="">
         </div>
-        
-        <div class="recipe-name">
-            <h1>{{ recipe.title }}</h1>
-            <p>por <a href="/admin/chefs/{{recipe.chef_id}}">{{ recipe.chef }}</a></p>
-        </div>
-
-        <section class="recipe-content">
-            <h3>Ingredientes <button class="visibility">ESCONDER</button></h3>
-            <div class="recipe-info">
-                <ul>
-                    {% for ingredient in recipe.ingredients %}
-                        <li>{{ ingredient }};</li>
-                    {% endfor %}
-                </ul>
-            </div>
-
-            <h3>Modo de preparo <button class="visibility">MOSTRAR</button></h3>
-            <div class="recipe-info hide">
-                <ul>
-                    {% for tip in recipe.preparation %}
-                        <li>{{ tip }}; </li>
-                    {% endfor %}
-                </ul>
-            </div>
-
-            <h3>Informações adicionais <button class="visibility">ESCONDER</button></h3>
-            <div class="recipe-info">
-                <p>{{ recipe.information }}</p>
-            </div>
-
-        </section>
+    </div>
+    
+    <div class="recipe-name">
+        <h1>{{ recipe.title }}</h1>
+        <p>por <a href="/admin/chefs/{{recipe.chef_id}}">{{ recipe.chef }}</a></p>
     </div>
 
-</section>
+    <section class="recipe-content">
+        <h3>Ingredientes <button class="visibility">ESCONDER</button></h3>
+        <div class="recipe-info">
+            <ul>
+                {% for ingredient in recipe.ingredients %}
+                    <li>{{ ingredient }};</li>
+                {% endfor %}
+            </ul>
+        </div>
 
-<script src="/scripts.js"></script>
+        <h3>Modo de preparo <button class="visibility">MOSTRAR</button></h3>
+        <div class="recipe-info hide">
+            <ul>
+                {% for tip in recipe.preparation %}
+                    <li>{{ tip }}; </li>
+                {% endfor %}
+            </ul>
+        </div>
 
+        <h3>Informações adicionais <button class="visibility">ESCONDER</button></h3>
+        <div class="recipe-info">
+            <p>{{ recipe.information }}</p>
+        </div>
+
+    </section>
+</div>
         
 {% endblock %}

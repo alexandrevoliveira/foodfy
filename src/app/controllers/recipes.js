@@ -15,7 +15,6 @@ module.exports = {
         // get images
         const recipeFilesPromise = recipes.map(recipe => File.findFiles(recipe.id))
         const recipeFilesResults = (await Promise.all(recipeFilesPromise)).map(result => result.rows[0])
-        console.log(recipeFilesResults)
 
         const filesPromise = recipeFilesResults.map(row => File.takeFiles(row.file_id))
         const filesResults = (await Promise.all(filesPromise)).map(file => file.rows[0])
@@ -37,8 +36,6 @@ module.exports = {
             // criarei um campo image na receita passando o campo src do file
             recipe.image = file.src
         })
-
-        console.log(recipes)
 
         return res.render("recipes/index", { recipes, filter })
     },

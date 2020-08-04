@@ -8,8 +8,37 @@ module.exports = {
         
         const { filter } = req.query
 
-        const results = await Recipe.all(filter)
-        const recipes = results.rows
+        // get recipes
+        let results = await Recipe.all(filter)
+        let recipes = results.rows
+
+        // get images
+        const recipeFilesPromise = recipes.map(recipe => File.findFiles(recipe.id))
+        const recipeFilesResults = (await Promise.all(recipeFilesPromise)).map(result => result.rows[0])
+        console.log(recipeFilesResults)
+
+        const filesPromise = recipeFilesResults.map(row => File.takeFiles(row.file_id))
+        const filesResults = (await Promise.all(filesPromise)).map(file => file.rows[0])
+        
+        const files = filesResults.map(file => ({
+            ...file,
+            src: `${req.protocol}://${req.headers.host}${file.path.replace("public", "")}`
+        }))
+        
+        recipes.map(recipe => {
+            // aqui irei achar a row na tabela recipe_files a qual tem o recipe_id igual ao id da recipe
+            const recipe_files = recipeFilesResults.find(row => row.recipe_id == recipe.id)
+            // aqui pegarei o file_id dessa receita
+            const fileId = recipe_files.file_id
+
+            // aqui pegarei o file da tabela files o qual tenha o id equivalente ao fileId da receita
+            const file = files.find(file => file.id == fileId)
+            
+            // criarei um campo image na receita passando o campo src do file
+            recipe.image = file.src
+        })
+
+        console.log(recipes)
 
         return res.render("recipes/index", { recipes, filter })
     },

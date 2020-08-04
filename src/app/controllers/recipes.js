@@ -84,15 +84,17 @@ module.exports = {
         const chefsOptions = results.rows
 
         // get images 
-        results = await File.findFiles(recipe.id)
+        results = await File.findFiles(recipe.id) // acharei o arquivo através da tabela recipe_files passando o recipe_id
         const recipe_files = results.rows // ex: 1 linha => { id: 15, recipe_id: 24, file_id: 53 } (console.log(recipe_files[0]))
         
+        // criarei um array de promessas para pegar os arquivos da tabela files passando o id de cada arquivo
         const filesPromise = recipe_files.map(file => File.takeFiles(file.file_id))
         let filesResults = await Promise.all(filesPromise)
         
-        filesResults = filesResults.map(file => file.rows[0])
+        // precisaremos fazer um map pra pegar a info que está dentro de cada row na posição 0
+        results = filesResults.map(file => file.rows[0])
 
-        files = filesResults.map(file => ({
+        files = results.map(file => ({
             ...file,
             src: `${req.protocol}://${req.headers.host}${file.path.replace("public", "")}`
         }))
@@ -117,7 +119,7 @@ module.exports = {
             
             
             const recipeFilesPromise = newfilesResults.map(file => {
-                // aqui obtemos o id de cada arquivo
+                // aqui obtemos o id de cada arquivo que foi criado na tabela files
                 const fileId = file.rows[0].id
                 // utilizamos o id de cada arquivo para criarmos um relacionamento
                 // entre a tabela files e recipes usando a tabela recipe_files

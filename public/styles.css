@@ -88,8 +88,10 @@ footer{
 /* === HEADER === */
 
 header{
+    font-family: 'Roboto-Regular', sans-serif;
+
     background-color: var(--color-preto);
-    padding: 27px;
+    padding: 24px 0;
     margin-bottom: 20px;
 }
 
@@ -98,22 +100,28 @@ header .container {
     align-items: center;
 }
 
+header .container .logo img {
+    width: 80px;
+    height: 24px;
+    margin-right: 50px;
+}
+
 header .container .links {
     display: flex;
-    grid-gap: 30px;
+    grid-gap: 24px;
 }
 
 header .container .links a {
     color: white;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
+    letter-spacing: 1.9px;
 }
 
-.logo img {
-    width: 90px;
-    height: 27px;
-    margin-right: 50px;
+header .container .links a:hover,
+header .container .links a.active {
+    color: var(--color-rocket);
 }
 
 /* === CHEFS BODYHEAD === */

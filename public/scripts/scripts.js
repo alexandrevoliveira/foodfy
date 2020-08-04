@@ -1,3 +1,5 @@
+const { link } = require("fs")
+
 //BOTÕES (ESCONDER/MOSTRAR) (/admin/recipes/:id)
 const recipeInfo = document.querySelectorAll('.recipe-info')
 const botoes = document.querySelectorAll('.visibility')
@@ -15,7 +17,7 @@ for (let i = 0; i < botoes.length; i++) {
     })
 }
 
-
+// Botões para adicionar ingredientes e preparação na criação ou edição de receitas
 function addIngredient() {
     const ingredients = document.querySelector("#ingredients")
     const fieldContainer = document.querySelectorAll(".box-ingredient")
@@ -46,7 +48,7 @@ function addPreparation() {
 document.querySelector(".add-ingredient").addEventListener("click", addIngredient)
 document.querySelector(".add-preparation").addEventListener("click", addPreparation)
 
-
+// função para upload de imagens no frontend
 const PhotosUpload = {
     input: "",
     uploadLimit: 5,

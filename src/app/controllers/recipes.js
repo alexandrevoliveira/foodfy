@@ -6,10 +6,8 @@ const Recipe_Files = require('../models/Recipe_Files')
 module.exports = {
     async index(req, res) {
         
-        const { filter } = req.query
-
         // get recipes
-        let results = await Recipe.all(filter)
+        let results = await Recipe.all()
         let recipes = results.rows
 
         // get images
@@ -37,7 +35,7 @@ module.exports = {
             recipe.image = file.src
         })
 
-        return res.render("recipes/index", { recipes, filter })
+        return res.render("recipes/index", { recipes })
     },
     async show(req, res) {
 

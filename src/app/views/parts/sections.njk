@@ -1,5 +1,5 @@
 {# SEARCH #}
-{% macro search(name, classes, button)%}
+{% macro search(name, classes)%}
 
     <div class="{{classes}}">
 
@@ -24,12 +24,9 @@
             <div>
                 <button form="form-filter" class="button" type="submit">Buscar</button>
             </div>
-
-            {% if button %}
-                <div>
-                    <a class="button" href="/admin/recipes/create">{{button}}</a>
-                </div>
-            {% endif %}
+            <div>
+                <a class="button" href="/admin/recipes/create">Criar Receita</a>
+            </div>
 
         </div>            
     </div>

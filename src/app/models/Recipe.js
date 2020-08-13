@@ -1,26 +1,15 @@
 const db = require('../../config/db')
 
 module.exports = {
-    all(filter) {
+    all() {
 
-        let query = `            
+        const query = `
             SELECT recipes.*, chefs.name AS chef
             FROM recipes
             LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
             WHERE recipes.chef_id is NOT NULL
-            `
-
-
-        if(filter) {
-            query = `
-                ${query}
-                AND recipes.title ILIKE '%${filter}%'
-            `
-        }
-            
-        query = `            
-            ${query}
-            ORDER BY recipes.title ASC`
+            ORDER BY recipes.created_at DESC
+        `
 
         return db.query(query)
     },
@@ -82,5 +71,28 @@ module.exports = {
     },
     chefsSelectedOptions() {
         return db.query(`SELECT * FROM chefs`)
+    },
+    search(params) {
+        const { filter } = params
+
+        let query = "",
+            filterQuery = `WHERE`
+
+        filterQuery = `
+            ${filterQuery}
+            recipes.title ILIKE '%${filter}%'
+            AND
+            `
+
+        query = `
+            SELECT recipes.*, chefs.name AS chef
+            FROM recipes
+            LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
+            ${filterQuery} recipes.chef_id is NOT NULL
+            ORDER BY recipes.updated_at DESC
+            `
+
+        return db.query(query)
+        
     }
 }

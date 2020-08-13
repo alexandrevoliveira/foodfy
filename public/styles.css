@@ -210,6 +210,14 @@ header .container .links a.active {
     color: var(--color-cinza);
 }
 
+.chef-card .button {
+    padding: 2px 4px;
+    max-width: 80px;
+
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
 
 /* === CHEFS SHOW.NJK ===*/
 
@@ -443,6 +451,7 @@ form .item > div:nth-child(1) {
 
 form .item input[type="text"],
 form .item input[type="number"],
+form .item input[type="url"],
 form .item textarea,
 form .item select {
     width: 100%;

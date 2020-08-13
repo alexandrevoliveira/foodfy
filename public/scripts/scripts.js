@@ -66,7 +66,7 @@ const PhotosUpload = {
             
             const reader = new FileReader() // criando um leitor de arquivos e colocando na variável reader
 
-            //onload = só executará após o arquivo está carregado (após a leitura do arquivo)
+            //onload = só executará após a leitura do arquivo
             reader.onload = () => {
 
                 // após a leitura do arquivo, criaremos um <img> e em seguidas colocaremos o result da imagem no src da <img>
@@ -75,7 +75,7 @@ const PhotosUpload = {
 
                 const div = PhotosUpload.getContainer(image)
 
-                // aqui colocamos a <div class="photo"></div> dentro da <div id="photos-preview"></div>
+                // aqui colocamos a <div class="photo">...</div> dentro da <div id="photos-preview"></div>
                 PhotosUpload.preview.appendChild(div)
 
             }

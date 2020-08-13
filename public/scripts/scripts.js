@@ -1,5 +1,3 @@
-const { link } = require("fs")
-
 //BOTÕES (ESCONDER/MOSTRAR) (/admin/recipes/:id)
 const recipeInfo = document.querySelectorAll('.recipe-info')
 const botoes = document.querySelectorAll('.visibility')

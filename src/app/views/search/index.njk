@@ -1,0 +1,10 @@
+{% extends "layout.njk" %}
+
+{% import "parts/sections.njk" as section %}
+
+{% block content %}
+
+    {{section.search('Gerenciar receitas', 'bodyhead-recipes')}}
+    {{section.recipes('', 'cards', recipes)}}
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{# SEARCH #}
+{% macro search(name, classes, button)%}
+
+    <div class="{{classes}}">
+
+        {% if name %}
+            <div>{{name}}</div>
+        {% endif %}
+
+        <div class="bodyhead-filter">
+
+            <div class="filter">
+                <form id="form-filter" action="/recipes/search" method="GET">
+                    <input 
+                        type="text" 
+                        name="filter"
+                        {% if search.term %}
+                            value="{{search.term}}"
+                        {% endif %}
+                        placeholder="Buscar uma receita"
+                    >
+                </form>
+            </div>
+            <div>
+                <button form="form-filter" class="button" type="submit">Buscar</button>
+            </div>
+
+            {% if button %}
+                <div>
+                    <a class="button" href="/admin/recipes/create">{{button}}</a>
+                </div>
+            {% endif %}
+
+        </div>            
+    </div>
+
+{% endmacro %}
+
+
+
+{# RECIPES #}
+{% macro recipes(name, classes, recipes) %}
+
+    <section class="{{classes}}">
+
+        {% for recipe in recipes %}
+            <div class="card">
+                <div class="card-image">
+                    <img src="{{recipe.image}}" alt="{{recipe.name}}">            
+                </div>
+                <div class="card-info">
+                    <div class="recipe-title">{{recipe.title}}</div>
+                    <div class="recipe-author">por <a href="/admin/chefs/{{recipe.ched_id}}">{{recipe.chef}}</a></div>
+                    <div class="recipe-button"><a href="/admin/recipes/{{recipe.id}}">Visualizar</a></div>
+                </div>            
+            </div>
+        {% endfor %}
+            
+    </section>
+
+{% endmacro %}

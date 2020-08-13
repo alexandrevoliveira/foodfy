@@ -1,5 +1,5 @@
 {# SEARCH #}
-{% macro search(name, classes)%}
+{% macro search(name, classes, search)%}
 
     <div class="{{classes}}">
 
@@ -14,10 +14,10 @@
                     <input 
                         type="text" 
                         name="filter"
+                        placeholder="Buscar uma receita"
                         {% if search.term %}
                             value="{{search.term}}"
                         {% endif %}
-                        placeholder="Buscar uma receita"
                     >
                 </form>
             </div>

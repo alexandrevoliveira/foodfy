@@ -5,7 +5,8 @@ CREATE TABLE "recipes" (
     "ingredients" text[ ],
     "preparation" text[ ],
     "information" text,
-    "created_at" timestamp DEFAULT (now())
+    "created_at" timestamp DEFAULT (now()),
+    "updated_at" timestamp DEFAULT (now())
 );
 
 CREATE TABLE "chefs" (

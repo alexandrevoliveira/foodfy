@@ -9,18 +9,18 @@ module.exports = {
             GROUP BY chefs.id
             ORDER BY name`)
     },
-    create(data) {
+    create(data, file_id) {
         const query = `
             INSERT INTO chefs (
                 name,
-                avatar_url
+                file_id
             ) VALUES ($1, $2)
             RETURNING id
         `
 
         const values = [
             data.name,
-            data.avatar_url
+            file_id
         ]
 
         return db.query(query, values)
@@ -37,13 +37,13 @@ module.exports = {
         const query = `
             UPDATE chefs SET
                 name=($1),
-                avatar_url=($2)
+                file_id=($2)
             WHERE id = $3
             `
 
         const values = [
             data.name,
-            data.avatar_url,
+            data.file_id,
             data.id
         ]
 
@@ -59,5 +59,10 @@ module.exports = {
             SELECT recipes.*
             FROM recipes
             WHERE recipes.chef_id = $1`, [id])
+    },
+    file(file_id) {
+        return db.query(`
+            SELECT * FROM files WHERE id = $1
+        `, [file_id])
     }
 }

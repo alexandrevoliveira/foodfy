@@ -1,4 +1,5 @@
 const Chef = require('../models/Chef')
+const File = require('../models/File')
 
 
 module.exports = {
@@ -11,12 +12,42 @@ module.exports = {
         
     },
     async show(req, res) {
+        const chefId = req.params.id
 
+        // find chef
         let results = await Chef.find(req.params.id)
         const chef = results.rows[0]
 
+        // show chef's recipes
         results = await Chef.showAllRecipes(req.params.id)
-        const recipes = results.rows
+        let recipes = results.rows
+
+        // finding chefs' image
+        results = await Chef.file(chef.file_id)
+        const file = results.rows[0]
+        chef.image = file.path.replace("public", "")
+
+        // finding the image of each recipe
+        async function getImage(recipeId) {
+            let results = await File.findFiles(recipeId)
+            const recipe_file = results.rows[0]
+
+            const fileId = recipe_file.file_id
+            results = await File.takeFiles(fileId)
+            
+            const files = results.rows.map(file => `${req.protocol}://${req.headers.host}${file.path.replace("public", "")}`)
+
+            return files[0]
+        }
+
+        const recipesPromise = recipes.map(async recipe => {
+            recipe.image = await getImage(recipe.id)
+            recipe.chef_id = req.params.id
+            recipe.chef = chef.name
+            return recipe
+        })
+
+        recipes = await Promise.all(recipesPromise)
 
         return res.render("chefs/show", { chef, recipes })
         
@@ -26,16 +57,25 @@ module.exports = {
     },
     async post(req, res) {
         
-        const keys = Object.keys(req.body)
+        try {
+            const keys = Object.keys(req.body)
     
-        for(let key of keys) {
-            if(req.body[key] == "") return res.send("Please fill all fields")
+            for(let key of keys) {
+                if(req.body[key] == "") return res.send("Please fill all fields")
+            }
+    
+            if (req.files.length == 0) return res.send("Please, send at least one image")
+    
+            let results = await File.create({...req.files[0]})
+            const fileId = results.rows[0].id
+    
+            results = await Chef.create(req.body, fileId)
+            const chef = results.rows[0]
+    
+            return res.redirect(`/admin/chefs/${chef.id}`)
+        } catch(err) {
+            console.error(err)
         }
-
-        const results = await Chef.create(req.body)
-        const chef = results.rows[0]
-
-        return res.redirect(`/admin/chefs/${chef.id}`)
 
     },
     async edit(req, res) {

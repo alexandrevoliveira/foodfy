@@ -1,15 +1,16 @@
 {% extends "layout.njk" %}
+{% import "parts/sections.njk" as section %}
 
 {% block content %}
 
 <div class="bodyhead">
     <div>Chef: {{chef.name}}</div>
-    <div><a class="button" href="/admin/chefs/{{ chef.id }}/edit">Editar Chef</a></div>
+    <div><a class="button" href="/admin/chefs/{{chef.id}}/edit">Editar Chef</a></div>
 </div>    
 
 <div class="chef-info">
     <div class="chef-image">
-        <img src="{{chef.avatar_url}}" alt="">
+        <img src="{{chef.image}}" alt="{{chef.name}}">
     </div>
     <div class="chef-name">
         <h1>{{chef.name}}</h1>
@@ -27,23 +28,6 @@
     <h3>Receitas</h3>
 </div>
 
-<section class="cards">
-
-    {% for recipe in recipes %}
-        <div class="card">
-            <div class="card-image">
-                <img src="{{recipe.image}}" alt="{{recipe.title}}">            
-            </div>
-            <div class="card-info">
-                <div class="recipe-title">{{recipe.title}}</div>
-                <div class="recipe-author">por {{chef.name}}</div>
-                <div class="recipe-button">
-                    <a href="/admin/recipes/{{recipe.id}}">Visualizar</a>
-                </div>
-            </div>            
-        </div>
-    {% endfor %}
-        
-</section>
+{{section.recipes('', 'cards', recipes)}}
             
 {% endblock %}

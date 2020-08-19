@@ -582,7 +582,7 @@ form .item #photos-preview .photo i {
     font-size: 300%;
     cursor: pointer;
 
-    color: var(--color-delete);
+    color: red;
     background-color:  rgba(255, 255, 255, 0.7);
 
     opacity: 0;
@@ -593,6 +593,95 @@ form .item #photos-preview .photo i {
 form .item #photos-preview .photo:hover i {
     opacity: 1;
 }
+
+/* CHEF PHOTO UPLOAD */
+
+form .item #photo-upload {
+    position: relative;
+
+    display: block;
+    overflow: hidden;
+
+    background-color: var(--color-rocket);
+    color: white;
+    width: 100%;
+    max-width: 120px;
+
+    border-radius: 4px;
+
+    margin: 8px 0;
+    padding: 8px 12px;
+    
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: none;
+    text-align: center;
+    letter-spacing: 0.7px;
+
+    
+    transition: all 0.2s;
+}
+
+form .item #photo-upload input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+    display: block;
+    overflow: hidden;
+    
+    width: 100%;
+    height: 100%;
+    
+    opacity: 0;
+    cursor: pointer;
+}
+
+form .item #photo-preview {
+    display: flex;
+    width: 100%;
+    margin: 8px 0;
+}
+
+form .item #photo-preview .chef-photo {
+    position: relative;
+}
+
+form .item #photo-preview .chef-photo img {
+    width: 150px;
+    height: 150px;
+
+    object-fit: cover;
+
+    border: 1px solid #efefef;
+    box-shadow: 2px 2px 2px -2px rgba(63, 63, 63, .7);
+    border-radius: 2px;
+}
+
+form .item #photo-preview .chef-photo i {
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 300%;
+    color: red;
+    background-color: rgba(255, 255, 255, 0.7);
+
+    opacity: 0;
+}
+
+form .item #photo-preview .chef-photo i:hover {
+    opacity: 1;
+}
+
+/* ----------------------------------------------------- */
 
 /* === RECIPES FORM-DELETE === */
 

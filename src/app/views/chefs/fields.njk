@@ -9,10 +9,22 @@
 
 <div class="item">
     <div>Avatar</div>
-    <input 
-        type="url" 
-        name="avatar_url"
-        value="{{chef.avatar_url}}"
-        placeholder="http://"
-    >
+    <div>
+
+        <div id="photo-preview"></div>
+
+        <div id="photo-upload">
+            <input
+                id="photo-input"
+                type="file"
+                name="photo"
+                accept="image/*"
+                onchange="ChefPhoto.upload(event)"
+            >
+            Enviar Avatar
+        </div>
+
+    </div>
 </div>
+
+<script src="/scripts/chefScripts.js"></script>

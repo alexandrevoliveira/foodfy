@@ -12,7 +12,7 @@
 
 <div class="forms-edit">
 
-    <form id="form-edit" class="chefs-input" method="POST" action="/admin/chefs?_method=PUT">
+    <form id="form-edit" class="chefs-input" method="POST" action="/admin/chefs?_method=PUT" enctype="multipart/form-data">
         <input type="hidden" name="id" value="{{chef.id}}">
         <div class="fields">
             {% include 'chefs/fields.njk' %}

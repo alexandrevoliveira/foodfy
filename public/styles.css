@@ -176,7 +176,7 @@ header .container .links a.active {
 .chef-cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 30px;
+    grid-gap: 6px;
     margin: 30px auto;
 }
 
@@ -249,7 +249,7 @@ header .container .links a.active {
 
 .container div h3 {
     color: var(--color-preto);
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
     letter-spacing: 1px;
     margin-bottom: 16px;
@@ -357,6 +357,7 @@ header .container .links a.active {
 
 .card .card-info .recipe-author a {
     color: var(--color-cinza);
+    font-size: 14px;
 }
 
 .card .card-info .recipe-author a:hover {
@@ -400,6 +401,7 @@ header .container .links a.active {
 
 .recipe-name p a:hover {
     color: var(--color-button);
+    font-weight: bold;
 }
 
 .recipe-content h3 {

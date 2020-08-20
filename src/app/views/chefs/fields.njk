@@ -11,7 +11,26 @@
     <div>Avatar</div>
     <div>
 
-        <div id="photo-preview"></div>
+        <div id="photo-preview">
+
+            {% if files %}
+
+                {% for image in files %}
+                    <div class="chef-photo" id="{{image.id}}">
+                        <img src="{{image.src}}" alt="{{image.name}}">
+                        <i 
+                            class="material-icons"
+                            onclick="ChefPhoto.removeOldPhoto(event)">
+                            delete
+                        </i>
+                    </div>            
+                {% endfor %}
+
+                <input type="hidden" name="removed_files">
+                
+            {% endif %}
+
+        </div>
 
         <div id="photo-upload">
             <input

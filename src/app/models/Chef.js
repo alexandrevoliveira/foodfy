@@ -33,7 +33,7 @@ module.exports = {
             WHERE chefs.id = $1
             GROUP BY chefs.id`, [id])
     },
-    update(data) {
+    update(data, file_id) {
         const query = `
             UPDATE chefs SET
                 name=($1),
@@ -43,7 +43,7 @@ module.exports = {
 
         const values = [
             data.name,
-            data.file_id,
+            file_id,
             data.id
         ]
 
@@ -59,10 +59,5 @@ module.exports = {
             SELECT recipes.*
             FROM recipes
             WHERE recipes.chef_id = $1`, [id])
-    },
-    file(file_id) {
-        return db.query(`
-            SELECT * FROM files WHERE id = $1
-        `, [file_id])
     }
 }

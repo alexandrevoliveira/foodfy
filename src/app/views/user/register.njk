@@ -1,0 +1,25 @@
+{% extends 'layout.njk' %}
+
+{% block content %}
+
+<div class="formhead user-create">
+    <div>Criar Usuário</div>
+    <div class="buttons">
+        <button form="form-create" id="button-save" class="button" type="submit">Salvar</button>
+        <div id="button-cancel" class="button"><a href="/admin/recipes">Cancelar</a></div>
+    </div>
+</div>
+
+<section class="user-register form">
+    
+    <form id="form-create" action="/admin/users/register" method="POST">
+
+        <div class="fields">
+            {% include 'user/fields.njk' %}
+        </div>
+
+    </form>
+
+</section>
+
+{% endblock %}

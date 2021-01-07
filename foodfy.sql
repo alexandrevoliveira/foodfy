@@ -1,3 +1,6 @@
+-- reset/change postgres password
+sudo -u <user_name> psql -c "ALTER USER <user_name> PASSWORD '<new_password>';"
+
 CREATE TABLE "recipes" (
     "id" SERIAL PRIMARY KEY,
     "chef_id" int,

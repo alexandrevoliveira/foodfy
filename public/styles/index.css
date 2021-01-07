@@ -88,7 +88,7 @@ header{
 
     background-color: var(--color-preto);
     padding: 24px 0;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 header .container {
@@ -447,7 +447,7 @@ form .item > div:nth-child(1) {
     font-size: 14px;
     font-weight: bold;
     color: #444;
-    text-transform: uppercase;
+    text-transform: capitalize;
 
     margin-bottom: 8px;
 }

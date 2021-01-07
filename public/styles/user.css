@@ -1,0 +1,73 @@
+/*  ================== USER REGISTER ================== */
+
+:root {
+    --color-error: #e74c3c;
+}
+
+/* FORMHEAD */
+.formhead.user-create {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.formhead.user-create div:first-child{
+    font-size: 22px;
+    font-family: 'Roboto-Bold', sans-serif;
+    font-weight: bold;
+    color: var(--color-preto);
+    letter-spacing: .7px;
+}
+
+.formhead.user-create div:last-child,
+.formhead.user-create div[id="button-cancel"] {
+    justify-self: end;
+}
+
+.formhead.user-create .buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    grid-gap: 10px;
+}
+
+.formhead.user-create .buttons #button-cancel {
+    background-color: var(--color-cinza);
+    transition: 400ms;
+}
+
+.formhead.user-create .buttons #button-cancel a {
+    color: white;
+}
+
+.formhead.user-create .buttons #button-cancel:hover {
+    background-color: var(--color-delete);
+}
+
+/* FIELDS */
+
+.user-register.form .fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    gap: 48px;
+}
+
+.user-register.form .fields div{
+    width: 100%;
+}
+
+.user-register.form .fields div#is_admin .input {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* validate errors */
+.input .error {
+    background-color: var(--color-error);
+    padding: 4px;
+    border-radius: 4px;
+    color: white;
+}

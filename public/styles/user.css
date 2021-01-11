@@ -71,3 +71,18 @@
     border-radius: 4px;
     color: white;
 }
+
+/* messages error/success */
+.messages.error {
+    max-width: 300px;
+    margin: 0 auto 36px;
+    
+    font-size: 16px;
+    text-align: center;
+
+    background-color: var(--color-error);
+    color: white;
+    padding: 20px 12px;
+    border-radius: 4px;
+    
+}

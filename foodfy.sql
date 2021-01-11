@@ -39,7 +39,7 @@ CREATE TABLE "users" (
   "password" TEXT NOT NULL,
   "reset_token" TEXT,
   "reset_token_expires" TEXT,
-  "is_admin" BOOLEAN DEFAULT "false",
+  "is_admin" BOOLEAN NOT NULL DEFAULT "false",
   "created_at" TIMESTAMP DEFAULT (now()),
   "updated_at" TIMESTAMP DEFAULT (now())
 );

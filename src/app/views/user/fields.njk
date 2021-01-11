@@ -1,5 +1,5 @@
 <div class="item">
-    <div>Nome</div>
+    <div>Nome *</div>
     <div class="input">
         <input 
             type="text"
@@ -12,7 +12,7 @@
 </div>
 
 <div class="item">
-    <div>Email</div>
+    <div>Email *</div>
     <div class="input">
         <input
             type="text"
@@ -30,7 +30,6 @@
             type="checkbox"
             name="is_admin"
             value="true"
-            {% if user.is_admin == "true" %} selected {% endif %}
         >
         <div>Administrador</div>
     </div>

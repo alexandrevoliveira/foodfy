@@ -1,0 +1,30 @@
+{% extends 'layout.njk' %}
+
+{% block content %}
+
+<section class="login container form">
+
+    <form method="POST" action="/users/login">
+    
+        <div class="header">
+            Iniciar Sessão
+        </div>
+
+        {% include 'session/login-fields.njk' %}
+
+        <div class="footer">
+            <ul>
+                <li>
+                    <a href="">Perdeu a senha?</a>
+                </li>
+                <li>
+                    <button class="button" type="submit">Acessar</button>
+                </li>
+            </ul>
+        </div>
+
+    </form>
+
+</section>
+
+{% endblock %}

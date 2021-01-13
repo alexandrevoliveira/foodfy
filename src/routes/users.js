@@ -4,9 +4,10 @@ const routes = express.Router()
 const UserValidator = require('../app/validators/user')
 
 const UserController = require('../app/controllers/UserController')
+const SessionController = require('../app/controllers/SessionController')
 
 // session controller
-// routes.get('/login', SessionController.loginForm)
+routes.get('/login', SessionController.loginForm)
 // routes.post('/login', SessionController.login)
 // routes.post('/logout', SessionController.logout)
 

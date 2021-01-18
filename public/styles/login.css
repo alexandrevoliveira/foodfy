@@ -4,12 +4,41 @@
     --color-rocket: #6558C3;
 }
 
+/* ==== HEADER LOGIN ==== */
+
+.header-login {
+    background-color: white;
+    padding: 35px 0;
+}
+
+.header-login .container a{
+    color: black;
+    font-family: 'Bodoni Moda', sans-serif;
+    
+    font-size: 28px;
+    text-align: center;
+    padding: 2px;
+
+    letter-spacing: 1.65px;
+
+    width: 100px;
+    margin: 0px auto 60px;
+
+    transition: ease-in-out 400ms;
+}
+
+/* ==== LOGIN FORM ==== */
+
 .login.container.form{
     width: 100%;
     max-width: 500px;
 }
 
-.login.container.form .formhead.login {
+.login.container.form .formhead-login h3{
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    
     margin-bottom: 36px;
 }
 
@@ -41,3 +70,5 @@
 .login.container.form .footer ul li a:first-child:hover {
     color: var(--color-rocket);
 }
+
+

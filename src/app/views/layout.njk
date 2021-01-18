@@ -11,8 +11,9 @@
 
     <body>
 
-        
-        {% include 'parts/header.njk' %}
+        {% block header %}
+            {% include 'parts/header.njk' %}
+        {% endblock %}
 
         <section class="container">
             {% include 'parts/messages.njk' %}

@@ -2,15 +2,19 @@
 
 {% block content %}
 
+
 <section class="login container form">
 
-    <form method="POST" action="/users/login">
-    
-        <div class="header">
-            Iniciar Sessão
-        </div>
+    <div class="formhead login">
+        <div>Iniciar Sessão</div>
+        <div></div>
+    </div>
 
-        {% include 'session/login-fields.njk' %}
+    <form method="POST" action="/users/login">
+
+        <div class="fields">
+            {% include 'session/login-fields.njk' %}
+        </div>
 
         <div class="footer">
             <ul>

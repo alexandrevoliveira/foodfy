@@ -1,0 +1,43 @@
+/*  ================== LOGIN / SESSION ================== */
+:root {
+    --color-link: #969696;
+    --color-rocket: #6558C3;
+}
+
+.login.container.form{
+    width: 100%;
+    max-width: 500px;
+}
+
+.login.container.form .formhead.login {
+    margin-bottom: 36px;
+}
+
+.login.container.form form .item input[type="password"] {
+    width: 100%;
+
+    padding: 8px 16px;
+    margin: 4px auto;
+
+    box-shadow: 2px 2px 2px -2px rgba(63, 63, 63, .7);
+
+    border: 1px solid #efefef;
+    border-radius: 4px;
+
+    font-size: 16px;
+}
+
+.login.container.form .footer ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login.container.form .footer ul li a:first-child {
+    color: var(--color-link);
+    font-weight: bold;
+}
+
+.login.container.form .footer ul li a:first-child:hover {
+    color: var(--color-rocket);
+}

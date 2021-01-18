@@ -1,13 +1,25 @@
 {% extends 'layout.njk' %}
 
-{% block content %}
+{% block header %}
 
+<header class="header-login">
+    
+    <div class="container">
+
+        <a href="/">Foodfy</a>
+
+    </div>
+
+</header>
+
+{% endblock %}
+
+{% block content %}
 
 <section class="login container form">
 
-    <div class="formhead login">
-        <div>Iniciar Sessão</div>
-        <div></div>
+    <div class="formhead-login">
+        <h3>Iniciar Sessão</h3>
     </div>
 
     <form method="POST" action="/users/login">

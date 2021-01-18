@@ -95,6 +95,12 @@ header{
 header .container {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+}
+
+header .container #left-header{
+    display: flex;
+    align-items: center;
 }
 
 header .container .logo img {
@@ -108,12 +114,13 @@ header .container .links {
     grid-gap: 24px;
 }
 
-header .container .links a {
+header .container .links a,
+header .container #right-header a{
     color: white;
     font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 1.9px;
+    letter-spacing: 1.2px;
 }
 
 header .container .links a:hover,

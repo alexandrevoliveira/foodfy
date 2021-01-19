@@ -55,3 +55,26 @@
     </section>
 
 {% endmacro %}
+
+{# USERS #}
+{% macro users(classes, users) %}
+    <section class="{{classes}}">
+
+        {% for user in users %}
+
+            <div class="user-card">
+                <div class="user-info">
+                    <div class="user-title">{{user.name}}</div>
+                    <div class="user-email">{{user.email}}</div>
+                </div>
+
+                <div class="user-buttons">
+                    <div class="user-edit"><a href="/admin/users/{{user.id}}">Editar</a></div>
+                    <div class="user-remove">Remover</div>
+                </div>            
+            </div>
+
+        {% endfor %}
+            
+    </section>
+{% endmacro %}

@@ -1,7 +1,17 @@
 const db = require("../../config/db")
 const crypto = require('crypto')
+const { all } = require("../../routes/users")
 
 module.exports = {
+    async all() {
+        try {
+            const query = "SELECT * FROM users"
+            const results = await db.query(query)
+            return results.rows
+        } catch (err) {
+            console.error(err)
+        }
+    },
     async findOne(filters) {
         let query = "SELECT * FROM users"
 

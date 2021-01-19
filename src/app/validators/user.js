@@ -1,18 +1,24 @@
 const User = require("../models/User")
 
 
-async function post(req, res, next) {
+function checkAllFields(body) {
     // checar se todos os campos estão preenchidos 
-    const keys = Object.keys(req.body)
+    const keys = Object.keys(body)
 
     for (key of keys) {
-        if(req.body[key] == "" && req.body[key] != "is_admin") {
-            return res.render('user/register', {
-                user: req.body,
+        if(body[key] == "" && body[key] != "is_admin") {
+            return {
+                user: body,
                 error: 'Por favor, preencha todos os campos obrigatórios(*)'
-            })
+            }
         }
     }
+}
+
+async function post(req, res, next) {
+
+    const fillAllFields = checkAllFields(req.body)
+    if(fillAllFields) return res.render('user/register', fillAllFields)
 
     // so cadastra se o campo de email estiver correto
     const { email } = req.body

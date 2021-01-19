@@ -14,7 +14,7 @@ routes.get('/login', SessionController.loginForm)
 // user register
 routes.get('/register', UserController.registerForm)
 routes.post('/register', UserValidator.post, UserController.post) // Cadastrar um usuário
-// routes.get('/', UserController.list) // Mostrar a lista de usuários cadastrados
+routes.get('/', UserController.list) // Mostrar a lista de usuários cadastrados
 // routes.put('/', UserController.put) // Editar um usuário
 // routes.delete('/', UserController.delete) // Deletar um usuário
 

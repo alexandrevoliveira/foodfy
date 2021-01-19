@@ -72,17 +72,20 @@
     color: white;
 }
 
-/* messages error/success */
-.messages.error {
-    max-width: 300px;
-    margin: 0 auto 36px;
-    
-    font-size: 16px;
-    text-align: center;
+/* ==== USER INDEX / DASHBOARD ==== */
 
-    background-color: var(--color-error);
+.formhead.user-index .button {
+    width: 140px;
+}
+
+.formhead.user-index .button a{
+    width: 100%;
     color: white;
-    padding: 20px 12px;
-    border-radius: 4px;
-    
+}
+
+.user-dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 52px;
+    margin: 30px auto;
 }

@@ -1,0 +1,40 @@
+:root {
+    --color-error: #e74c3c;
+    --color-success:  rgb(122, 182, 30);
+}
+
+@keyframes hidemessage {
+    to {
+        top: -200px;
+        opacity: 0;
+    }
+}
+
+/* messages error/success */
+.messages {
+    justify-content: right;
+    position: absolute;
+
+    max-width: 300px;
+    margin: 0 auto 36px;
+    
+    font-size: 16px;
+    text-align: center;
+
+    color: white;
+    padding: 20px 12px;
+    border-radius: 4px;
+    
+    top: 0;
+    opacity: 1;
+
+    animation: hidemessage 400ms 5s ease-out forwards;
+}
+
+.messages.error {
+    background-color: var(--color-error);
+}
+
+.messages.success {
+ background-color: var(--color-success);
+}

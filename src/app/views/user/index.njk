@@ -1,0 +1,14 @@
+{% extends 'layout.njk' %}
+
+{% import 'parts/sections.njk' as sections %}
+
+{% block content %}
+
+    <div class="formhead user-index">
+        <div>Usuários</div>
+        <div><a class="button" href="/admin/users/register">Novo</a></div>
+    </div>
+
+    {{sections.users('user-dashboard', users)}}
+
+{% endblock %}

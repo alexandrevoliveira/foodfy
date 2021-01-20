@@ -19,7 +19,13 @@
         </div>
 
         <div id="right-header">
-            <a href="/admin/users/login">Entrar</a>
+            {% if session.userId %}
+                <form method="POST" action="/admin/users/logout">
+                    <button class="logout" type="submit">SAIR</button>
+                </form>
+            {% else %}
+                <a href="/admin/users/login">Entrar</a>
+            {% endif %}
         </div>
 
         <script src="/scripts/header.js"></script>

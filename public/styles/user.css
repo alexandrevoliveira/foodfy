@@ -2,6 +2,10 @@
 
 :root {
     --color-error: #e74c3c;
+    --color-black: #111111;
+    --color-gray: #777777;
+    --color-rocket: #6558C3;
+    --color-remove: #F55A5A;
 }
 
 /* FORMHEAD */
@@ -88,4 +92,41 @@
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 52px;
     margin: 30px auto;
+}
+
+.user-dashboard .user-info .user-title {
+    font-size: 18px;
+    color: var(--color-black);
+    margin-bottom: 4px;
+}
+
+.user-dashboard .user-info .user-email {
+    font-size: 14px;
+    color: var(--color-gray); 
+    margin-bottom: 16px;   
+}
+
+.user-dashboard .user-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+.user-dashboard .user-buttons div.user-edit {
+    font-size: 14px;
+    color: var(--color-rocket);
+    font-weight: bold;
+}
+
+.user-dashboard .user-buttons div.user-remove {
+    font-size: 14px;
+    color: var(--color-remove);
+    font-weight: bold;
+}
+
+.user-dashboard .user-buttons div.user-edit:hover {
+    cursor: pointer;
+}
+
+.user-dashboard .user-buttons div.user-remove:hover {
+    cursor: pointer;
 }

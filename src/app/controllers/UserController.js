@@ -9,13 +9,16 @@ module.exports = {
         const users = await User.all()
         return res.render("user/index", { users })
     },
+    async show(req, res) {
+
+    },
     async post(req, res) {
         try {
             const userId = await User.create(req.body)
 
             req.session.userId = userId
 
-            return res.redirect('/admin/users/register')
+            return res.redirect('/admin/users')
         } catch (err) {
             console.error(err)
         }

@@ -172,8 +172,27 @@ module.exports = {
         return res.redirect(`/admin/recipes/${req.body.id}`)
     },
     async delete(req, res) {
-        await Recipe.delete(req.body.id)
+        try {
+            const recipeId = req.body.id
+
+            let results = await File.findFiles(recipeId)
+            let recipe_files = results.rows
+
+            const filesPromise = recipe_files.map(async field => await File.takeFiles(field.file_id)) 
+            const filesResults = await Promise.all(filesPromise)
+            
+            // precisaremos fazer um map pra pegar a info que está dentro de cada row na posição 0
+            const files = filesResults.map(file => file.rows[0])
+
+            files.map(async file => await File.delete(file.id))
+            
+            await Recipe_Files.delete(recipeId)
+
+            await Recipe.delete(recipeId)
         
-        return res.redirect(`/admin/recipes/${req.body.id}`)
+            return res.redirect(`/admin/recipes`)
+        } catch (err) {
+            console.error(err)
+        }
     }
 }

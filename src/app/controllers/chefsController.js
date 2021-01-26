@@ -148,7 +148,15 @@ module.exports = {
         }
     },
     async delete(req, res) {
-        await Chef.delete(req.body.id)
-        return res.redirect(`/admin/chefs/${req.body.id}`)
+        try {
+            const id = req.body.id
+            const chef = await Chef.findOne({ where: { id }})
+
+            await File.delete(chef.file_id)
+            await Chef.delete(chef.id)
+            return res.redirect(`/admin/chefs`)
+        } catch (err) {
+            console.error(err)
+        }
     }
 }

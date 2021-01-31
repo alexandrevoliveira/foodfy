@@ -15,9 +15,10 @@ routes.post('/login', SessionValidator.login, SessionController.login)
 routes.post('/logout', SessionController.logout)
 
 // user register
-routes.get('/register', UserController.registerForm)
-routes.post('/register', UserValidator.post, UserController.post) // Cadastrar um usuário
+routes.get('/register', adminOnly, UserController.registerForm)
+routes.post('/register', adminOnly, UserValidator.post, UserController.post) // Cadastrar um usuário
 routes.get('/', adminOnly, UserController.list) // Mostrar a lista de usuários cadastrados
+routes.get('/:id', adminOnly, UserController.show) // Mostra um único usuário cadastrado
 // routes.put('/', UserController.put) // Editar um usuário
 // routes.delete('/', UserController.delete) // Deletar um usuário
 

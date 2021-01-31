@@ -29,7 +29,9 @@
         <input 
             type="checkbox"
             name="is_admin"
-            value="true"
+            {% if user.is_admin %} 
+                checked 
+            {% endif %}
         >
         <div>Administrador</div>
     </div>

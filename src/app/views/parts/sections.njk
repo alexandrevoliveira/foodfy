@@ -1,4 +1,20 @@
+{# DELETE MESSAGE #}
+
+{% macro confirm(message) %}
+<script>
+    const formDelete = document.querySelector("#form-delete")
+    formDelete.addEventListener("submit", (event) => {
+        const confirmation = confirm('{{message}}')
+        if(!confirmation) {
+            event.preventDefault()
+        }
+    })
+</script>
+{% endmacro %}
+
+
 {# SEARCH #}
+
 {% macro search(name, classes, search)%}
 
     <div class="{{classes}}">

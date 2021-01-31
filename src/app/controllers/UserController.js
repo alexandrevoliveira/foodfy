@@ -10,7 +10,11 @@ module.exports = {
         return res.render("user/index", { users })
     },
     async show(req, res) {
+        const id = req.params.id
 
+        const user = await User.findOne({ where: { id }})
+
+        return res.render("user/edit", { user })
     },
     async post(req, res) {
         try {

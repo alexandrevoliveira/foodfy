@@ -1,5 +1,7 @@
 {% extends "layout.njk" %}
 
+{% import "parts/sections.njk" as sections %}
+
 {% block content %}
 
 <div class="formhead-recipes">
@@ -21,7 +23,7 @@
 
     <form id="form-delete" method="POST" action="/admin/recipes?_method=DELETE">
         <input type="hidden" name="id" value="{{recipe.id}}">
-        {% include 'confirm.njk' %}
+        {{sections.confirm('Deseja deletar?')}}
     </form>
 
 </div>

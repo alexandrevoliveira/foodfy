@@ -1,0 +1,34 @@
+{% extends 'layout.njk' %}
+{% import 'parts/sections.njk' as sections %}
+
+{% block content %}
+
+{% include 'parts/messages.njk' %}
+
+<div class="formhead user-edit">
+    <div>Atualizar Usuário</div>
+    <div class="buttons">
+        <button form="form-delete" id="button-delete" class="button">Deletar</button>
+        <button form="form-create" id="button-save" class="button" type="submit">Salvar</button>
+    </div>
+</div>
+
+<section class="user-register form">
+    
+    <form id="form-create" method="POST" action="/admin/users/?_method=PUT">
+        <input type="hidden" name="id" value="{{user.id}}">
+        <div class="fields">
+            {% include 'user/fields.njk' %}
+            {{ sections.confirm("Deseja atualizar?") }}
+        </div>
+
+    </form>
+
+    <form method="POST" action="/admin/users/?_method=DELETE">
+        <input type="hidden" name="id" value="{{user.id}}">
+        {{ sections.confirm("Deseja deletar?") }}
+    </form>
+
+</section>
+
+{% endblock %}

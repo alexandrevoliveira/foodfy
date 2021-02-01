@@ -1,3 +1,4 @@
+const { put } = require("../../routes/users")
 const User = require("../models/User")
 
 module.exports = {
@@ -23,6 +24,24 @@ module.exports = {
             req.session.userId = userId
 
             return res.redirect('/admin/users')
+        } catch (err) {
+            console.error(err)
+        }
+    },
+    async put(req, res) {
+        try {
+            const { user } = req
+            let { name, email, is_admin } = req.body
+
+            if(!is_admin) is_admin = false
+
+            await User.update(user.id, {
+                name,
+                email,
+                is_admin
+            })
+
+            return res.redirect("/admin/users")
         } catch (err) {
             console.error(err)
         }

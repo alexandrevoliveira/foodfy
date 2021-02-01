@@ -126,11 +126,19 @@ module.exports = {
                     res.send("Please, send at least one image")
                 }
             }
+            
+            const { id:chef_id, name } = req.body
 
             if(req.files.length != 0) {
                 let results = await File.create({...req.files[0]})
-                const fileId = results.rows[0].id
-                await Chef.update(req.body, fileId)
+                const file_id = results.rows[0].id
+
+                await Chef.update(chef_id, {
+                    name,
+                    file_id
+                })
+            } else {
+                await Chef.update(chef_id, { name })
             }
 
             if (req.body.removed_files) {

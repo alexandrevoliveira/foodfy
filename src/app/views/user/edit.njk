@@ -9,13 +9,13 @@
     <div>Atualizar Usuário</div>
     <div class="buttons">
         <button form="form-delete" id="button-delete" class="button">Deletar</button>
-        <button form="form-create" id="button-save" class="button" type="submit">Salvar</button>
+        <button form="form-edit" id="button-save" class="button" type="submit">Salvar</button>
     </div>
 </div>
 
 <section class="user-register form">
     
-    <form id="form-create" method="POST" action="/admin/users/?_method=PUT">
+    <form id="form-edit" method="POST" action="/admin/users/?_method=PUT">
         <input type="hidden" name="id" value="{{user.id}}">
         <div class="fields">
             {% include 'user/fields.njk' %}

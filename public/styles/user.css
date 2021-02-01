@@ -6,17 +6,20 @@
     --color-gray: #777777;
     --color-rocket: #6558C3;
     --color-remove: #F55A5A;
+    --color-delete: #DC4747;
 }
 
 /* FORMHEAD */
-.formhead.user-create {
+.formhead.user-create,
+.formhead.user-edit {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
     margin-bottom: 32px;
 }
 
-.formhead.user-create div:first-child{
+.formhead.user-create div:first-child,
+.formhead.user-edit div:first-child{
     font-size: 22px;
     font-family: 'Roboto-Bold', sans-serif;
     font-weight: bold;
@@ -29,7 +32,8 @@
     justify-self: end;
 }
 
-.formhead.user-create .buttons {
+.formhead.user-create .buttons,
+.formhead.user-edit .buttons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
@@ -38,7 +42,6 @@
 
 .formhead.user-create .buttons #button-cancel {
     background-color: var(--color-cinza);
-    transition: 400ms;
 }
 
 .formhead.user-create .buttons #button-cancel a {
@@ -46,6 +49,13 @@
 }
 
 .formhead.user-create .buttons #button-cancel:hover {
+    background-color: var(--color-delete);
+    transition: 1400ms;
+}
+
+/* FORMHEAD EDIT */
+
+.formhead.user-edit .buttons #button-delete {
     background-color: var(--color-delete);
 }
 

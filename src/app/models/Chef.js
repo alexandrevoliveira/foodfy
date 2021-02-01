@@ -48,21 +48,25 @@ module.exports = {
             WHERE chefs.id = $1
             GROUP BY chefs.id`, [id])
     },
-    update(data, file_id) {
-        const query = `
-            UPDATE chefs SET
-                name=($1),
-                file_id=($2)
-            WHERE id = $3
-            `
+    async update(id, fields) {
+        try {
+            let query = "UPDATE chefs SET" 
 
-        const values = [
-            data.name,
-            file_id,
-            data.id
-        ]
+            Object.keys(fields).map((key, index, array) => {
+                if((index + 1) < array.length) {
+                    query += ` ${key} = '${fields[key]}',`
+                } else {
+                    query += ` ${key} = '${fields[key]}' WHERE id = ${id}`
+                }
+            })
 
-        return db.query(query, values)        
+            await db.query(query)        
+
+            return
+            
+        } catch (err) {
+            console.error(err)            
+        }
     },
     delete(id) {
         return db.query(`

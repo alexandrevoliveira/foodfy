@@ -1,6 +1,5 @@
 const db = require("../../config/db")
 const crypto = require('crypto')
-const { all } = require("../../routes/users")
 
 module.exports = {
     async all() {

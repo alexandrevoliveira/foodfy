@@ -7,22 +7,43 @@
 
 <div class="formhead user-edit">
     <div>Atualizar Usuário</div>
-    <div class="buttons">
-        <button form="form-delete" id="button-delete" class="button">Deletar</button>
-        <button form="form-edit" id="button-save" class="button" type="submit">Salvar</button>
-    </div>
+    {% if admin %}
+        <div class="buttons">
+            <button form="form-delete" id="button-delete" class="button">Deletar</button>
+            <button form="form-edit" id="button-save" class="button" type="submit">Salvar</button>        
+        </div>
+    {% else %}
+        <div class="buttons" style="display: block; align-items: end;">
+            <button form="form-edit" id="button-save" class="button" type="submit">Salvar</button>
+        </div>
+    {% endif %}
+
 </div>
 
 <section class="user-register form">
-    
-    <form id="form-edit" method="POST" action="/admin/users/?_method=PUT">
-        <input type="hidden" name="id" value="{{user.id}}">
-        <div class="fields">
-            {% include 'user/fields.njk' %}
-            {{ sections.confirm("Deseja atualizar?") }}
-        </div>
 
-    </form>
+    {% if admin %}
+
+        <form id="form-edit" method="POST" action="/admin/users/?_method=PUT">
+            <input type="hidden" name="id" value="{{user.id}}">
+            <div class="fields">
+                {% include 'user/fields.njk' %}
+                {{ sections.confirm("Deseja atualizar?") }}
+            </div>
+        </form>
+
+    {% else %}
+
+        <form id="form-edit" method="POST" action="/admin/profile/?_method=PUT">
+            <input type="hidden" name="id" value="{{user.id}}">
+            <div class="fields">
+                {% include 'user/fields.njk' %}
+                {{ sections.confirm("Deseja atualizar?") }}
+            </div>
+        </form>
+
+    {% endif %}
+
 
     <form method="POST" action="/admin/users/?_method=DELETE">
         <input type="hidden" name="id" value="{{user.id}}">

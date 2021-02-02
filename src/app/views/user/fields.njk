@@ -24,17 +24,21 @@
     </div>
 </div>
 
-<div class="item" id="is_admin">
-    <div class="input">
-        <input 
-            type="checkbox"
-            name="is_admin"
-            {% if user.is_admin %} 
-                checked 
-            {% endif %}
-        >
-        <div>Administrador</div>
+{% if admin %}
+
+    <div class="item" id="is_admin">
+        <div class="input">
+            <input 
+                type="checkbox"
+                name="is_admin"
+                {% if user.is_admin %} 
+                    checked 
+                {% endif %}
+            >
+            <div>Administrador</div>
+        </div>
     </div>
-</div>
+
+{% endif %}
 
 <script src="/scripts/CheckFields.js"></script>

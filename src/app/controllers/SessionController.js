@@ -3,9 +3,10 @@ module.exports = {
         return res.render("session/login")
     },
     login(req, res) {
-        req.session.userId = req.user.id
+        const { user } = req
+        req.session.userId = user.id
 
-        return res.redirect('/admin/users')
+        return res.redirect('/admin/profile')
     },
     logout(req, res) {
         try {

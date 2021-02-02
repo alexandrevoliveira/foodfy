@@ -1,4 +1,3 @@
-const { put } = require("../../routes/users")
 const User = require("../models/User")
 
 module.exports = {
@@ -11,11 +10,34 @@ module.exports = {
         return res.render("user/index", { users })
     },
     async show(req, res) {
-        const id = req.params.id
+        try {
+            let id = req.session.userId
+            let user
+            let admin
+    
+            user = await User.findOne({ where: { id }})
+                
+            // verifico primeiramente se o usuário que está logado é admin, 
+            // caso seja colocarei na variável admin, caso contrário o retornarei para
+            // seu Profile, pois este não deveria estar acessando o profile de outros usuários
+            if(user.is_admin) {
+                admin = user
+            } else{
+                return res.redirect("/admin/profile")
+            }
+            // a finalidade de obter os dados do admin é para adicionar as restrições 
+            // de usuário comum à algumas funcionalidades
 
-        const user = await User.findOne({ where: { id }})
 
-        return res.render("user/edit", { user })
+            // pega o id no parametro e depois procura pelo usuario
+            id = req.params.id
+            user = await User.findOne({ where: { id }})
+
+            return res.render("user/edit", { admin, user })
+
+        } catch (err) {
+            console.error(err)
+        }
     },
     async post(req, res) {
         try {

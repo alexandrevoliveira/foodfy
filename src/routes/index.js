@@ -4,6 +4,9 @@ const routes = express.Router()
 const home = require('../app/controllers/homeController')
 const search = require('../app/controllers/searchController')
 
+const ProfileController = require('../app/controllers/ProfileController')
+const UserValidator = require('../app/validators/user')
+
 const users = require('./users')
 const recipes = require('./recipes')
 const chefs = require('./chefs')
@@ -16,8 +19,8 @@ routes.get("/recipes/search", search.index)
 
 // users
 routes.use("/admin/users", users)
-// routes.get('/admin/profile', ProfileController.index) // Mostrar o formulário com dados do usuário logado
-// routes.put('/admin/profile', ProfileController.put) // Editar o usuário logado
+routes.get('/admin/profile', ProfileController.index) // Mostrar o formulário com dados do usuário logado
+routes.put('/admin/profile', UserValidator.put, ProfileController.put) // Editar o usuário logado
 
 // recipes
 routes.use("/admin/recipes", recipes)

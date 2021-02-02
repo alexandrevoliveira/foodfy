@@ -1,6 +1,5 @@
 const User = require("../models/User")
 
-
 function checkAllFields(body) {
     // checar se todos os campos estão preenchidos 
     const keys = Object.keys(body)
@@ -42,7 +41,9 @@ async function post(req, res, next) {
     })
 
     next()
-}async function put(req, res, next) {
+}
+
+async function put(req, res, next) {
 
     // check if all fields were filled
     const fillAllFields = checkAllFields(req.body)

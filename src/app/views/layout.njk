@@ -10,10 +10,13 @@
     </head>
 
     <body>
+        <section class="header-menu">
+            {% block header %}
+                {% include 'parts/header.njk' %}
+            {% endblock %}
 
-        {% block header %}
-            {% include 'parts/header.njk' %}
-        {% endblock %}
+            {% include 'parts/messages.njk' %}
+        </section>
 
         <section class="container">
             {% block content %}{% endblock %}

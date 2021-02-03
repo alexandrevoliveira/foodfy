@@ -15,5 +15,11 @@ module.exports = {
         } catch (err) {
             console.error(err)
         }
+    },
+    forgotForm(req, res) {
+        return res.render("session/forgot-password")
+    },
+    resetForm(req, res) {
+        return res.render("session/password-reset")
     }
 }

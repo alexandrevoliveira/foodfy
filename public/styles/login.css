@@ -6,12 +6,16 @@
 
 /* ==== HEADER LOGIN ==== */
 
-.header-login {
+.header-login,
+.header-forgot,
+.header-reset {
     background-color: white;
     padding: 35px 0;
 }
 
-.header-login .container a{
+.header-login .container a,
+.header-forgot .container a,
+.header-reset .container a {
     color: black;
     font-family: 'Bodoni Moda', sans-serif;
     
@@ -29,12 +33,16 @@
 
 /* ==== LOGIN FORM ==== */
 
-.login.container.form{
+.login.container.form,
+.forgot.container.form,
+.reset.container.form {
     width: 100%;
     max-width: 500px;
 }
 
-.login.container.form .formhead-login h3{
+.login.container.form .formhead-login h3, 
+.forgot.container.form .formhead-forgot h3,
+.reset.container.form .formhead-reset h3 {
     font-size: 24px;
     font-family: 'Roboto', sans-serif;
     text-align: center;
@@ -42,7 +50,14 @@
     margin-bottom: 36px;
 }
 
-.login.container.form form .item input[type="password"] {
+.login.container.form form .fields, 
+.forgot.container.form form .fields,
+.reset.container.form form .fields {
+    margin-bottom: 32px;
+}
+
+.login.container.form form .item input[type="password"],
+.reset.container.form form .item input[type="password"] {
     width: 100%;
 
     padding: 8px 16px;
@@ -60,6 +75,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.forgot.container.form .footer ul li,
+.reset.container.form .footer ul li{
+    position: absolute;
+    right: 0;
 }
 
 .login.container.form .footer ul li a:first-child {

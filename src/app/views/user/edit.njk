@@ -11,9 +11,16 @@
             <button form="form-edit" id="button-save" class="button" type="submit">Salvar</button>        
         </div>
     {% else %}
-        <div class="buttons" style="display: block; align-items: end;">
-            <button form="form-edit" id="button-save" class="button" type="submit">Salvar</button>
-        </div>
+        {% if user.is_admin %}
+            <div class="buttons">
+                <a href="/admin/users" class="button">Lista de Usuários</a>
+                <button form="form-edit" id="button-save" class="button" type="submit">Salvar</button>
+            </div>
+        {% else %}
+            <div class="buttons" style="display: block; align-items: end;">
+                <button form="form-edit" id="button-save" class="button" type="submit">Salvar</button>
+            </div>
+        {% endif %}
     {% endif %}
 
 </div>
@@ -35,7 +42,7 @@
         <form id="form-edit" method="POST" action="/admin/profile/?_method=PUT">
             <input type="hidden" name="id" value="{{user.id}}">
             <div class="fields">
-                {% include 'user/fields.njk' %}
+                {% include 'user/profile-fields.njk' %}
                 {{ sections.confirm("Deseja atualizar?") }}
             </div>
         </form>

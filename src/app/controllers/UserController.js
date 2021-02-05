@@ -11,9 +11,9 @@ module.exports = {
     },
     async show(req, res) {
         try {
-            let id = req.session.userId
-            let user
-            let admin
+            let id = req.session.userId,
+            user,
+            admin
     
             user = await User.findOne({ where: { id }})
                 

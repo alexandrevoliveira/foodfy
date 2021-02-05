@@ -65,7 +65,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: space-between;
-    gap: 48px;
+    gap: 0px 40px;
 }
 
 .user-register.form .fields div{
@@ -76,6 +76,20 @@
     display: flex;
     gap: 8px;
     align-items: center;
+}
+
+.user-register.form .fields input[type="password"]{
+    width: 100%;
+
+    padding: 8px 16px;
+    margin: 4px auto;
+
+    box-shadow: 2px 2px 2px -2px rgba(63, 63, 63, .7);
+
+    border: 1px solid #efefef;
+    border-radius: 4px;
+
+    font-size: 16px;
 }
 
 /* validate errors */

@@ -5,7 +5,7 @@ async function adminOnly(req, res, next) {
     const { userId: id } = req.session
 
     const user = await User.findOne({ where: { id } })
-    if(user.is_admin != true) return res.redirect('/admin/profile')
+    if(user.is_admin != true) return res.redirect('/admin/recipes')
 
     next()
 }

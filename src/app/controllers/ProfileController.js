@@ -1,5 +1,7 @@
 const User = require("../models/User")
 
+const { compare } = require('bcryptjs')
+
 module.exports = {
     async index(req, res) {
         const id = req.session.userId
@@ -11,7 +13,14 @@ module.exports = {
     async put(req, res) {
         try {
             const { user } = req
-            let { name, email } = req.body
+            const { name, email, password } = req.body
+
+            const passed = await compare(password, user.password)
+
+            if(!passed) return res.render("user/edit", {
+                user: req.body,
+                error: "Senha inválida, digite novamente"
+            })
 
             await User.update(user.id, {
                 name,

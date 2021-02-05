@@ -1,5 +1,7 @@
 const db = require("../../config/db")
+const mailer = require("../lib/mailer")
 const crypto = require('crypto')
+const { hash } = require('bcryptjs')
 
 module.exports = {
     async all() {
@@ -40,10 +42,28 @@ module.exports = {
 
             const randomPassword = crypto.randomBytes(6).toString("hex")
 
+            await mailer.sendMail({
+                to: data.email,
+                from: "no-reply@foodfy.com.br",
+                subject: "Nova conta",
+                html: `
+                <h2>Sua nova conta do Foodfy foi criada</h2>
+                <p>Sua senha é: ${randomPassword}</p>
+                <p>Caso queira trocar sua senha, clique no link abaixo
+                    <a href="http://localhost:3000/admin/users/forgot-password">
+                        TROCAR A SENHA
+                    </a>
+                </p>
+                `
+            })
+
+            // password hash
+            const passwordHash = await hash(randomPassword, 8)
+
             const values = [
                 data.name,
                 data.email,
-                data.password || randomPassword,
+                passwordHash,
                 data.is_admin || false
             ]
 

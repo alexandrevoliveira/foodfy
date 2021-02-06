@@ -94,5 +94,8 @@ module.exports = {
         } catch (err) {
             console.error(err)
         }
+    },
+    async delete(id) {
+        return db.query(`DELETE FROM users WHERE id = ${id}`)
     }
 }

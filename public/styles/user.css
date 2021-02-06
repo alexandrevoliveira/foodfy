@@ -133,24 +133,26 @@
 .user-dashboard .user-buttons {
     display: flex;
     gap: 16px;
+    align-items: center;
 }
 
-.user-dashboard .user-buttons div.user-edit {
+.user-dashboard .user-buttons div.user-edit a{
     font-size: 14px;
     color: var(--color-rocket);
     font-weight: bold;
 }
 
-.user-dashboard .user-buttons div.user-remove {
+.user-dashboard .user-buttons div.user-remove form button{
     font-size: 14px;
     color: var(--color-remove);
+    background-color: white;
     font-weight: bold;
 }
 
-.user-dashboard .user-buttons div.user-edit:hover {
+.user-dashboard .user-buttons div.user-edit a:hover {
     cursor: pointer;
 }
 
-.user-dashboard .user-buttons div.user-remove:hover {
+.user-dashboard .user-buttons div.user-remove form button:hover {
     cursor: pointer;
 }

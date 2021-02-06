@@ -215,7 +215,7 @@ module.exports = {
             let id = req.session.userId
             const user = await User.findOne({ where: { id } })
 
-            if(!user) return res.redirect("/")
+            if(!user) return res.redirect("/admin/users/login")
 
             if((user.id == recipe.user_id) || (user.is_admin)){
                 // deletando arquivo

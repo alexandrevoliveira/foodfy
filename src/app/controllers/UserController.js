@@ -41,11 +41,13 @@ module.exports = {
     },
     async post(req, res) {
         try {
-            const userId = await User.create(req.body)
+            await User.create(req.body)
+            const users = await User.all()
 
-            req.session.userId = userId
-
-            return res.redirect('/admin/users')
+            return res.render('user/index', {
+                users,
+                success: "Conta criada com sucesso"
+            })
         } catch (err) {
             console.error(err)
         }
@@ -66,6 +68,41 @@ module.exports = {
             return res.redirect("/admin/users")
         } catch (err) {
             console.error(err)
+        }
+    },
+    async delete(req, res) {
+        try {
+            let id = req.session.userId,
+            isAdmin
+            user = await User.findOne({ where: { id } })
+            if(user.is_admin == true) isAdmin = user
+
+            if(!isAdmin) return res.render("user/edit", {
+                user,
+                error: "Ação não permitida"
+            })
+
+            id = req.body.id
+            user = await User.findOne({ where: { id } })
+
+            const users = await User.all()
+
+            if(user && (user.id != isAdmin.id)){
+                await User.delete(user.id)
+
+                return res.redirect("/admin/users")
+            } else {
+                return res.render("user/index", {
+                    users,
+                    error: "Ação não permitida"
+                })
+            }
+
+        } catch (err) {
+            console.error(err)
+            return res.render("recipes/index", {
+                error: "Algum erro aconteceu. Tente novamente."
+            })
         }
     }
 }

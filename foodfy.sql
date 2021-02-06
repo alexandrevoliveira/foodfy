@@ -4,6 +4,7 @@ sudo -u <user_name> psql -c "ALTER USER <user_name> PASSWORD '<new_password>';"
 CREATE TABLE "recipes" (
     "id" SERIAL PRIMARY KEY,
     "chef_id" int,
+    "user_id" int,
     "title" text,
     "ingredients" text[ ],
     "preparation" text[ ],
@@ -57,6 +58,7 @@ PRIMARY KEY ("sid") NOT DEFERRABLE INITIALLY IMMEDIATE;
 
 -- relations between tables
 ALTER TABLE "recipes" ADD FOREIGN KEY ("chef_id") REFERENCES "chefs" ("id") ON DELETE CASCADE;
+ALTER TABLE "recipes" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id") ON DELETE CASCADE;
 ALTER TABLE "recipe_files" ADD FOREIGN KEY ("recipe_id") REFERENCES "recipes" ("id") ON DELETE CASCADE;
 ALTER TABLE "recipe_files" ADD FOREIGN KEY ("file_id") REFERENCES "files" ("id") ON DELETE CASCADE;
 ALTER TABLE "chefs" ADD FOREIGN KEY ("file_id") REFERENCES "files" ("id") ON DELETE CASCADE;

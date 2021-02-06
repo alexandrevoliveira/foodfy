@@ -1,6 +1,7 @@
 const Recipe = require('../models/Recipe')
 const File = require('../models/File')
 const Recipe_Files = require('../models/Recipe_Files')
+const User = require('../models/User')
 
 
 module.exports = {
@@ -65,8 +66,14 @@ module.exports = {
     async create(req, res) {   
         const results = await Recipe.chefsSelectedOptions()
         const chefsOptions = results.rows
+                
+        // find user
+        const id = req.session.userId
+        const user = await User.findOne({ where: { id } })
+        console.log(user)
 
-        return res.render("recipes/create", { chefsOptions })
+
+        return res.render("recipes/create", { chefsOptions, user })
     },
     async post(req, res) {
         const keys = Object.keys(req.body)
@@ -76,6 +83,8 @@ module.exports = {
         }
 
         if (req.files.length == 0) return res.send("Please, send at least one image")
+
+        req.body.user_id = req.session.userId
 
         // create recipe
         let results = await Recipe.create(req.body)
@@ -167,16 +176,34 @@ module.exports = {
             await Promise.all(removedFilesPromise)
         }
 
-        await Recipe.update(req.body)
-        
-        return res.redirect(`/admin/recipes/${req.body.id}`)
+        let results = await Recipe.find(req.body.id)
+        const recipe = results.rows[0]
+
+        // get user
+        let id = req.session.userId
+        const user = await User.findOne({ where: { id } })
+
+        if(!user) return res.redirect("/")
+
+        if((user.id == recipe.user_id) || (user.is_admin)){
+            await Recipe.update(req.body)
+            
+            return res.redirect(`/admin/recipes/${req.body.id}`)
+        }
     },
     async delete(req, res) {
         try {
+            // get recipe
+            let results = await Recipe.find(req.body.id)
+            const recipe = results.rows[0]
+            
+            if(!recipe) return res.redirect("/admin/recipes")
+            
+            // get files
             const recipeId = req.body.id
 
-            let results = await File.findFiles(recipeId)
-            let recipe_files = results.rows
+            results = await File.findFiles(recipeId)
+            const recipe_files = results.rows
 
             const filesPromise = recipe_files.map(async field => await File.takeFiles(field.file_id)) 
             const filesResults = await Promise.all(filesPromise)
@@ -184,13 +211,27 @@ module.exports = {
             // precisaremos fazer um map pra pegar a info que está dentro de cada row na posição 0
             const files = filesResults.map(file => file.rows[0])
 
-            files.map(async file => await File.delete(file.id))
-            
-            await Recipe_Files.delete(recipeId)
+            // get user
+            let id = req.session.userId
+            const user = await User.findOne({ where: { id } })
 
-            await Recipe.delete(recipeId)
-        
-            return res.redirect(`/admin/recipes`)
+            if(!user) return res.redirect("/")
+
+            if((user.id == recipe.user_id) || (user.is_admin)){
+                // deletando arquivo
+                files.map(async file => await File.delete(file.id))
+                
+                // deletando a tabela que referencia receitas e arquivos
+                await Recipe_Files.delete(recipeId)
+
+                // deletando receita
+                await Recipe.delete(recipeId)
+            
+                return res.redirect(`/admin/recipes`)
+            } else {
+                return res.redirect(`/admin/recipes`)
+            }
+
         } catch (err) {
             console.error(err)
         }

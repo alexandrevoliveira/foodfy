@@ -50,7 +50,7 @@
     {% endif %}
 
 
-    <form method="POST" action="/admin/users/?_method=DELETE">
+    <form id="form-delete" method="POST" action="/admin/users/?_method=DELETE">
         <input type="hidden" name="id" value="{{user.id}}">
         {{ sections.confirm("Deseja deletar?") }}
     </form>

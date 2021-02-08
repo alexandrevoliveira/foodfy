@@ -142,7 +142,7 @@
     font-weight: bold;
 }
 
-.user-dashboard .user-buttons div.user-remove form button{
+.user-dashboard .user-buttons div.user-remove a{
     font-size: 14px;
     color: var(--color-remove);
     background-color: white;
@@ -153,6 +153,6 @@
     cursor: pointer;
 }
 
-.user-dashboard .user-buttons div.user-remove form button:hover {
+.user-dashboard .user-buttons div.user-remove a:hover {
     cursor: pointer;
 }

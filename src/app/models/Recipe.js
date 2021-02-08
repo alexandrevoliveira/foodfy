@@ -96,5 +96,24 @@ module.exports = {
 
         return db.query(query)
         
+    },
+    async findOne(filters) {
+        let query = "SELECT * FROM recipes"
+
+        Object.keys(filters).map(key => {
+            query += ` ${key}`
+
+            Object.keys(filters[key]).map(field => {
+                query += ` ${field} = '${filters[key][field]}'`
+            })
+        })
+
+        const results = await db.query(query)
+
+        return results.rows[0]
+    },
+    async allFromUsers(user_id) {
+        const results = await db.query(`SELECT * FROM recipes WHERE user_id = ${user_id}`)
+        return results.rows
     }
 }

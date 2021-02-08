@@ -70,8 +70,6 @@ module.exports = {
         // find user
         const id = req.session.userId
         const user = await User.findOne({ where: { id } })
-        console.log(user)
-
 
         return res.render("recipes/create", { chefsOptions, user })
     },
@@ -205,7 +203,7 @@ module.exports = {
             results = await File.findFiles(recipeId)
             const recipe_files = results.rows
 
-            const filesPromise = recipe_files.map(async field => await File.takeFiles(field.file_id)) 
+            const filesPromise = recipe_files.map(field => File.takeFiles(field.file_id)) 
             const filesResults = await Promise.all(filesPromise)
             
             // precisaremos fazer um map pra pegar a info que está dentro de cada row na posição 0

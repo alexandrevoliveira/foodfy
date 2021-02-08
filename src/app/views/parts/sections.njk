@@ -4,7 +4,7 @@
 <script>
     const formDelete = document.querySelector("#form-delete")
     formDelete.addEventListener("submit", (event) => {
-        const confirmation = confirm('{{message}}')
+        const confirmation = confirm('Deseja deletar?')
         if(!confirmation) {
             event.preventDefault()
         }
@@ -86,21 +86,7 @@
 
                 <div class="user-buttons">
                     <div class="user-edit"><a href="/admin/users/{{user.id}}">Editar</a></div>
-                    <div class="user-remove">
-                        <form id="delete-form" method="POST" action="/admin/users/?_method=DELETE">
-                            <input type="hidden" name="id" value="{{user.id}}">
-                            <button form="delete-form" type="submit">Remover</button>
-                        </form>                        
-                        <script>
-                            const formDelete = document.querySelector("#delete-form")
-                            formDelete.addEventListener("submit", (event) => {
-                                const confirmation = confirm("Deseja realmente deletar?")
-                                if(!confirmation) {
-                                    event.preventDefault()
-                                }
-                            })
-                        </script>
-                    </div>
+                    <div class="user-remove"><a href="/admin/users/{{user.id}}">Remover</a></div>
                 </div>            
             </div>
 

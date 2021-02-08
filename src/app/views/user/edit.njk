@@ -1,5 +1,6 @@
 {% extends 'layout.njk' %}
-{% import 'parts/sections.njk' as sections %}
+
+{% import "parts/sections.njk" as sections %}
 
 {% block content %}
 
@@ -33,8 +34,12 @@
             <input type="hidden" name="id" value="{{user.id}}">
             <div class="fields">
                 {% include 'user/fields.njk' %}
-                {{ sections.confirm("Deseja atualizar?") }}
             </div>
+        </form>
+        
+        <form id="form-delete" method="POST" action="/admin/users/?_method=DELETE">
+            <input type="hidden" name="id" value="{{user.id}}">
+            {{sections.confirm('Deseja deletar?')}}
         </form>
 
     {% else %}
@@ -43,17 +48,10 @@
             <input type="hidden" name="id" value="{{user.id}}">
             <div class="fields">
                 {% include 'user/profile-fields.njk' %}
-                {{ sections.confirm("Deseja atualizar?") }}
             </div>
         </form>
 
     {% endif %}
-
-
-    <form id="form-delete" method="POST" action="/admin/users/?_method=DELETE">
-        <input type="hidden" name="id" value="{{user.id}}">
-        {{ sections.confirm("Deseja deletar?") }}
-    </form>
 
 </section>
 
